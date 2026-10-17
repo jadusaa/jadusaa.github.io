@@ -124,7 +124,7 @@ def render_project(p, idx):
     build = case_block("What I built", f"<p>{esc(p['build'])}</p>") if p.get("build") else ""
     rel = ""
     if p.get("reliability"):
-        rel = case_block("Reliability &amp; failure handling",
+        rel = case_block("Reliability & failure handling",
                          '<ul class="project-points">' + "".join(f"<li>{esc(x)}</li>" for x in p["reliability"]) + "</ul>")
     flow = f'<div class="case-flow">{esc(p["flow"])}</div>' if p.get("flow") else ""
     proof = case_block("Proof", f"<p>{esc(p['proof'])}</p>") if p.get("proof") else ""
