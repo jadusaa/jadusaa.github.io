@@ -32,7 +32,27 @@
 
   
 .generic-visual{padding:34px}.generic-panel{position:relative;z-index:3;width:82%;min-height:280px;border:1px solid #2f3742;border-radius:22px;background:linear-gradient(155deg,#10141a,#090b0e);padding:28px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 28px 80px rgba(0,0,0,.32)}.generic-panel .generic-mark{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--lime)}.generic-panel h4{font-size:clamp(28px,4vw,48px);letter-spacing:-.055em;line-height:1;margin:18px 0;color:#eef2f6}.generic-panel p{margin:0;color:#818995;font-size:13px;line-height:1.6}.generic-lines{display:grid;gap:9px;margin-top:26px}.generic-lines i{height:7px;border-radius:99px;background:#202630;display:block}.generic-lines i:nth-child(1){width:88%}.generic-lines i:nth-child(2){width:72%}.generic-lines i:nth-child(3){width:58%;background:linear-gradient(90deg,var(--lime),#22301c)}
-</style>
+
+    /* --- case-study additions (v2) --- */
+    .case-study .case-one-liner{font-weight:700;color:#cdd6e0;margin:10px 0 18px;font-size:17px;line-height:1.5}
+    .case-block{margin:18px 0;padding:16px 18px;background:rgba(255,255,255,.028);border:1px solid rgba(255,255,255,.07);border-radius:14px}
+    .case-block h4{margin:0 0 8px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#7d8695}
+    .case-block p{margin:0;color:#aab3bf;line-height:1.65;font-size:14.5px}
+    .case-flow{margin:14px 0;padding:12px 16px;border-radius:12px;background:rgba(122,162,247,.07);border:1px dashed rgba(122,162,247,.35);font-family:ui-monospace,monospace;font-size:12.5px;color:#9fb6d8;overflow-x:auto;white-space:nowrap}
+    .project-media{display:grid;gap:12px;margin:16px 0}
+    .project-fig{margin:0;background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.08);border-radius:12px;overflow:hidden}
+    .project-fig img{width:100%;display:block}
+    .project-fig figcaption{padding:8px 12px;font-size:11.5px;color:#838b96;border-top:1px solid rgba(255,255,255,.06)}
+    .how-section .howibuild-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;counter-reset:hb}
+    .how-section .howibuild-list li{counter-increment:hb;background:rgba(255,255,255,.028);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:18px;display:flex;gap:14px;align-items:flex-start;color:#c3ccd6;font-weight:600;font-size:14.5px;line-height:1.5}
+    .how-section .howibuild-list li::before{content:counter(hb,decimal-leading-zero);font-size:22px;font-weight:900;color:#5b8def;letter-spacing:-.03em}
+    .hero-description.secondary-line{margin-top:-14px;color:#838b96;font-weight:600}
+    @media(max-width:760px){.case-block{padding:13px 14px}.case-flow{font-size:11px}}
+
+        .button.small{min-height:44px;display:inline-flex;align-items:center;padding:11px 16px}
+    .project-fig img{background:#141a22;min-height:120px}
+
+    </style>
 </head>
 <body>
   <div class="noise" aria-hidden="true"></div>
@@ -67,10 +87,11 @@
           <span class="title-line accent-line"><span class="word-reveal delay-2">THAT KEEP WORKING.</span></span>
         </h1>
         <div class="hero-lower" data-reveal>
-          <p class="hero-description">I build n8n automations that connect tools, handle leads, move data between apps and use AI where it actually helps. I care just as much about retries, duplicates and failed API calls as the happy path.</p>
+          <p class="hero-description">I build reliable automation systems around APIs, webhooks, lead handling and AI workflows.</p>
+          <p class="hero-description secondary-line">Tested workflows. Clear failure handling. Practical handoff.</p>
           <div class="hero-actions">
-            <a class="button primary" href="#work">View projects <span>↘</span></a>
-            <a class="button ghost" href="mailto:jawadsabir150@gmail.com">Email me</a>
+            <a class="button primary" href="#work">View Work <span>↘</span></a>
+            <a class="button ghost" href="mailto:jawadsabir150@gmail.com">Email Me</a>
           </div>
         </div>
       </div>
@@ -103,7 +124,16 @@
       <!-- AUTO_PROJECTS_END -->
     </section>
 
-    <section id="services" class="section services-section">
+    <section id="how" class="section how-section">
+      <div class="section-head" data-reveal>
+        <div><p class="eyebrow">METHOD</p><h2>How I build</h2></div>
+        <p>Every workflow ships with the same six habits.</p>
+      </div>
+      <!-- AUTO_HOWIBUILD_START -->
+      <!-- AUTO_HOWIBUILD_END -->
+    </section>
+
+<section id="services" class="section services-section">
       <div class="section-head" data-reveal>
         <div><p class="eyebrow">WHAT I DO</p><h2>Build. Fix. Connect.</h2></div>
         <p>Small, practical automation work with clear handoff — no bloated stack for the sake of it.</p>

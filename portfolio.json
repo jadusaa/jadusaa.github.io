@@ -19,12 +19,49 @@
       ],
       "metric": "23 / 23",
       "metric_label": "PASS",
-      "url": "https://github.com/jadusaa/n8n-reliability-lead-routing-demo",
-      "cta": "Open GitHub \u2197",
       "visual_type": "workflow",
       "featured": true,
       "reverse": false,
-      "public_safe": true
+      "public_safe": true,
+      "one_liner": "Lead intake that survives duplicates, dead APIs and partial failures — verified by 23 acceptance tests.",
+      "problem": "Lead workflows in the wild break on the boring stuff: the same webhook fires twice, an API 503s mid-run, a step fails halfway and the retry creates a duplicate lead. Most demos only show the happy path.",
+      "build": "An n8n lead-intake and routing workflow where every webhook receipt is idempotent (duplicate deliveries collapse to one record), validation gates entry, retries use backoff with explicit failure paths, and a safe replay recovers failed runs without duplicating side effects. Every decision is logged for audit.",
+      "reliability": [
+        "Idempotency keys on intake — duplicate webhooks collapse to a single record",
+        "Retries with backoff and explicit failure paths — no silent loops",
+        "Safe replay: failed runs re-execute without double-processing",
+        "Failure alerts instead of silent breakage",
+        "Audit trail of every route decision"
+      ],
+      "proof": "23/23 acceptance tests in the repo's evidence/acceptance-summary.json — covering duplicate delivery, transient failure, replay and routing edge cases. Demo uses synthetic data.",
+      "tech": [
+        "n8n",
+        "Webhooks",
+        "Idempotency",
+        "Backoff/retries",
+        "Replay",
+        "Audit logging"
+      ],
+      "links": [
+        {
+          "label": "View GitHub",
+          "url": "https://github.com/jadusaa/n8n-reliability-lead-routing-demo",
+          "kind": "primary"
+        },
+        {
+          "label": "View Test Evidence",
+          "url": "https://github.com/jadusaa/n8n-reliability-lead-routing-demo/blob/main/evidence/acceptance-summary.json",
+          "kind": "ghost"
+        },
+        {
+          "label": "Workflow Docs",
+          "url": "https://github.com/jadusaa/n8n-reliability-lead-routing-demo/tree/main/docs",
+          "kind": "ghost"
+        }
+      ],
+      "media": [],
+      "visibility": "public",
+      "public_case_study": true
     },
     {
       "id": "ai-lead-classifier",
@@ -43,12 +80,61 @@
       ],
       "metric": "9 / 9",
       "metric_label": "PASS",
-      "url": "https://github.com/jadusaa/n8n-ai-lead-classifier-demo",
-      "cta": "Open GitHub \u2197",
       "visual_type": "terminal",
       "featured": false,
       "reverse": true,
-      "public_safe": true
+      "public_safe": true,
+      "one_liner": "A real LLM call inside n8n that trusts nothing blindly — validated, retried, and failed clearly when the model misbehaves. 9/9 tests.",
+      "problem": "Most LLM integrations break quietly: the model returns malformed JSON, the API 503s, or output drifts from the schema — and the workflow routes garbage anyway.",
+      "build": "An n8n workflow making a real Hive API call to GLM 5.3 Flash for lead classification (category, urgency, intent). The response is parsed and schema-validated before routing; transient failures retry with backoff; malformed or invalid output returns a clean rejection — never a guess. Forced-failure tests prove each path.",
+      "reliability": [
+        "Schema validation before any routing decision",
+        "Transient 503 recovery with backoff retries",
+        "Malformed output → explicit error, not a fabricated result",
+        "Forced-failure test path proves the failure branch works",
+        "Structured JSON output consumed downstream without re-parsing"
+      ],
+      "proof": "9/9 test cases passed (test_cases.json, retry-evidence.json, results.json in repo). Real screenshots: workflow canvas + successful execution. Demo uses synthetic data.",
+      "tech": [
+        "n8n",
+        "LLM (GLM 5.3 Flash via Hive)",
+        "JSON schema validation",
+        "Retry/backoff",
+        "API integration"
+      ],
+      "links": [
+        {
+          "label": "View GitHub",
+          "url": "https://github.com/jadusaa/n8n-ai-lead-classifier-demo",
+          "kind": "primary"
+        },
+        {
+          "label": "View Test Results",
+          "url": "https://github.com/jadusaa/n8n-ai-lead-classifier-demo/blob/main/results.json",
+          "kind": "ghost"
+        },
+        {
+          "label": "Architecture",
+          "url": "https://github.com/jadusaa/n8n-ai-lead-classifier-demo/blob/main/ARCHITECTURE.md",
+          "kind": "ghost"
+        }
+      ],
+      "media": [
+        {
+          "type": "image",
+          "src": "assets/01_workflow_canvas.png",
+          "alt": "n8n workflow canvas of the AI lead classifier",
+          "caption": "Workflow canvas — real n8n screenshot"
+        },
+        {
+          "type": "image",
+          "src": "assets/02_successful_execution.png",
+          "alt": "Successful classifier execution in n8n",
+          "caption": "Successful execution — real run output"
+        }
+      ],
+      "visibility": "public",
+      "public_case_study": true
     },
     {
       "id": "opportunity-engine",
@@ -67,12 +153,85 @@
       ],
       "metric": "22 / 22",
       "metric_label": "PASS",
-      "url": "mailto:jawadsabir150@gmail.com?subject=Opportunity%20Engine%20demo",
-      "cta": "Private demo on request",
-      "visual_type": "phone",
+      "visual_type": "architecture",
       "featured": false,
       "reverse": false,
-      "public_safe": true
+      "public_safe": true,
+      "one_liner": "A private acquisition-control system: discovers opportunities, scores them, drafts outreach — and sends nothing without a human approval tap.",
+      "problem": "Solo operators drown in lead sources: a forum post here, a job board there, replies lost in email. Manual tracking loses follow-ups; full-auto outreach is reckless.",
+      "build": "A private, mobile-first control system: n8n orchestrates continuous discovery from multiple sources; a local engine scores and dedupes leads, drafts tailored outreach, and routes every send through an approval gate on Jawad's phone. Gmail send + reply watcher, automatic follow-up scheduling with cancellation on reply, budget tracking, backups.",
+      "flow": "discover → qualify → research → draft → approve → send → monitor reply → follow-up/cancel",
+      "reliability": [
+        "Approval gate — nothing sends without an explicit human tap",
+        "Duplicate-send prevention (idempotency on outbound)",
+        "Reply detection mirrors inbound email into the lead thread",
+        "Follow-up auto-cancellation when a reply lands",
+        "Audit trail on every state change; scheduled backups; cost guardrails"
+      ],
+      "proof": "22/22 live regression tests passed (API, qualification, failure handling). Controlled Gmail loop verified end-to-end. Mobile QA passed at 390×844. Sanitized architecture diagram only — no operational data.",
+      "tech": [
+        "n8n",
+        "FastAPI",
+        "SQLite",
+        "Gmail API",
+        "PWA",
+        "Tailscale (private access only)"
+      ],
+      "links": [
+        {
+          "label": "Private system — walkthrough available on request",
+          "url": "mailto:jawadsabir150@gmail.com?subject=Opportunity%20Engine%20demo",
+          "kind": "ghost"
+        }
+      ],
+      "media": [],
+      "visibility": "private",
+      "public_case_study": true
     }
+  ],
+  "hero": {
+    "name": "Jawad Sabir",
+    "role": "n8n Automation Developer",
+    "supporting": "I build reliable automation systems around APIs, webhooks, lead handling and AI workflows.",
+    "secondary": "Tested workflows. Clear failure handling. Practical handoff.",
+    "cta_primary": {
+      "label": "View Work",
+      "anchor": "#work"
+    },
+    "cta_secondary": {
+      "label": "Email Me",
+      "href": "mailto:jawadsabir150@gmail.com"
+    }
+  },
+  "proof_strip": [
+    {
+      "value": "23/23",
+      "label": "Reliability Tests"
+    },
+    {
+      "value": "9/9",
+      "label": "LLM Workflow Tests"
+    },
+    {
+      "value": "22/22",
+      "label": "Opportunity Engine Regression"
+    }
+  ],
+  "how_i_build": [
+    "Validate inputs before anything moves",
+    "Prevent duplicate actions by design",
+    "Handle transient failures with retries",
+    "Fail clearly when something breaks",
+    "Log what happened, every time",
+    "Test before handoff"
+  ],
+  "what_i_work_on": [
+    "n8n workflows",
+    "API & webhook integrations",
+    "AI / LLM workflow integration",
+    "Workflow repair",
+    "Lead routing & qualification",
+    "Reliability testing",
+    "Automation handoff & documentation"
   ]
 }

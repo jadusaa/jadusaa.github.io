@@ -10,14 +10,27 @@ ap.add_argument("--manifest", required=True)
 args=ap.parse_args()
 manifest=Path(args.manifest)
 p=json.loads(manifest.read_text(encoding="utf-8"))
-required=["id","title","summary","tags","bullets","metric","metric_label","url","cta","visual_type","featured","reverse","public_safe"]
+required=["id","title","summary","tags","metric","metric_label","visual_type","featured","reverse","public_safe"]
 missing=[k for k in required if k not in p]
 if missing:
     raise SystemExit("Missing fields: "+", ".join(missing))
 if p["public_safe"] is not True:
     raise SystemExit("Refusing to publish: public_safe must be true")
-if not isinstance(p["bullets"],list) or len(p["bullets"])<2:
-    raise SystemExit("Need at least 2 evidence bullets")
+# case-study mode: either full case fields OR legacy bullets+url
+has_case = bool(p.get("problem")) and bool(p.get("build")) and bool(p.get("proof"))
+has_legacy = isinstance(p.get("bullets"),list) and len(p.get("bullets",[]))>=2
+if not (has_case or has_legacy):
+    raise SystemExit("Need either case-study fields (problem+build+proof) or >=2 evidence bullets")
+# link/CTA normalization
+if has_case:
+    if not isinstance(p.get("links"),list) or not p["links"]:
+        raise SystemExit("Case-study mode requires links[] (View GitHub / evidence etc.)")
+# optional extended fields (v2 schema)
+for k in ("reliability","tech","media","one_liner","flow","visibility","private_notes","public_case_study","test_metrics"):
+    if k in p and p[k] is None:
+        p.pop(k)  # drop nulls silently
+if "visibility" not in p:
+    p["visibility"] = "public"
 
 data=json.loads(DATA.read_text(encoding="utf-8"))
 projects=data.setdefault("projects",[])
