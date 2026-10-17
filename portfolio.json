@@ -1,0 +1,78 @@
+{
+  "owner": "Jawad Sabir",
+  "title": "n8n Automation Developer",
+  "projects": [
+    {
+      "id": "lead-routing-reliability",
+      "title": "Lead Routing Reliability Demo",
+      "summary": "A lead-intake and routing workflow built to survive the boring failures that break real automations: duplicates, partial failures, retries and replay.",
+      "tags": [
+        "n8n",
+        "Reliability",
+        "Webhooks"
+      ],
+      "bullets": [
+        "Idempotency and duplicate protection",
+        "Retry/backoff with explicit failure paths",
+        "Safe replay without duplicate side effects",
+        "23/23 acceptance tests passed"
+      ],
+      "metric": "23 / 23",
+      "metric_label": "PASS",
+      "url": "https://github.com/jadusaa/n8n-reliability-lead-routing-demo",
+      "cta": "Open GitHub \u2197",
+      "visual_type": "workflow",
+      "featured": true,
+      "reverse": false,
+      "public_safe": true
+    },
+    {
+      "id": "ai-lead-classifier",
+      "title": "AI Lead Classifier",
+      "summary": "A real LLM call inside n8n using Hive / GLM 5.3 Flash. The workflow trusts nothing blindly: output is parsed, schema-validated, routed and rejected cleanly when the model misbehaves.",
+      "tags": [
+        "n8n",
+        "LLM",
+        "API"
+      ],
+      "bullets": [
+        "Structured JSON + schema validation",
+        "Transient 503 recovery with retries",
+        "Malformed output returns an error, not a guess",
+        "9/9 acceptance tests passed"
+      ],
+      "metric": "9 / 9",
+      "metric_label": "PASS",
+      "url": "https://github.com/jadusaa/n8n-ai-lead-classifier-demo",
+      "cta": "Open GitHub \u2197",
+      "visual_type": "terminal",
+      "featured": false,
+      "reverse": true,
+      "public_safe": true
+    },
+    {
+      "id": "opportunity-engine",
+      "title": "Opportunity Engine",
+      "summary": "A private, mobile-first acquisition control system that finds opportunities, scores them, drafts outreach, tracks replies and manages follow-ups while keeping outbound actions approval-gated.",
+      "tags": [
+        "n8n",
+        "Gmail",
+        "PWA"
+      ],
+      "bullets": [
+        "Mobile PWA + private Tailscale access",
+        "Gmail send / reply watcher with idempotency",
+        "Lead scoring, approval gates and follow-up cancellation",
+        "22/22 live regression tests passed"
+      ],
+      "metric": "22 / 22",
+      "metric_label": "PASS",
+      "url": "mailto:jawadsabir150@gmail.com?subject=Opportunity%20Engine%20demo",
+      "cta": "Private demo on request",
+      "visual_type": "phone",
+      "featured": false,
+      "reverse": false,
+      "public_safe": true
+    }
+  ]
+}

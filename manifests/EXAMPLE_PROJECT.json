@@ -1,0 +1,15 @@
+{
+  "id": "example-project",
+  "title": "Example Project",
+  "summary": "A short, factual description of what the project does and why it matters.",
+  "tags": ["n8n", "API"],
+  "bullets": ["Evidence-backed proof point", "Another verified result"],
+  "metric": "10 / 10",
+  "metric_label": "PASS",
+  "url": "https://github.com/jadusaa/example",
+  "cta": "Open GitHub ↗",
+  "visual_type": "generic",
+  "featured": false,
+  "reverse": false,
+  "public_safe": true
+}

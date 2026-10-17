@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#08090b" />
+  <meta name="description" content="Jawad Sabir — n8n Automation Developer. Reliable workflows, API integrations, webhooks and AI automations." />
+  <meta property="og:title" content="Jawad Sabir — n8n Automation Developer" />
+  <meta property="og:description" content="Reliable n8n workflows, API integrations and AI automations." />
+  <meta property="og:type" content="website" />
+  <title>Jawad Sabir — n8n Automation Developer</title>
+  <script>document.documentElement.classList.add("js")</script>
+  <style>
+:root{
+  --bg:#08090b;--panel:#101216;--panel2:#0d0f12;--text:#f3f5f7;--muted:#9299a3;--line:#242932;
+  --lime:#c8ff61;--blue:#77a9ff;--orange:#ffb36a;--radius:28px;--max:1240px;
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;overflow-x:hidden;letter-spacing:-.01em}a{color:inherit;text-decoration:none}button,a{-webkit-tap-highlight-color:transparent}
+.noise{position:fixed;inset:0;pointer-events:none;z-index:20;opacity:.055;mix-blend-mode:soft-light;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 220 220' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E")}.cursor-glow{position:fixed;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(119,169,255,.10),rgba(200,255,97,.025) 45%,transparent 70%);transform:translate(-50%,-50%);pointer-events:none;z-index:0;transition:opacity .3s}
+.site-header{position:fixed;top:0;left:0;right:0;z-index:15;height:78px;display:flex;align-items:center;gap:32px;padding:0 max(28px,calc((100vw - var(--max))/2));background:linear-gradient(to bottom,rgba(8,9,11,.92),rgba(8,9,11,.62),transparent);backdrop-filter:blur(14px)}.brand{font-size:20px;font-weight:900;letter-spacing:-.06em}.brand-dot{color:var(--lime)}nav{display:flex;gap:24px;margin-left:auto}nav a{font-size:13px;color:#c2c6cc;transition:.2s}nav a:hover{color:white}.status-pill{font-size:12px;color:#cfd3d8;border:1px solid #2e343d;padding:9px 12px;border-radius:999px;background:#0e1115}.status-pill span{display:inline-block;width:7px;height:7px;border-radius:50%;background:#7cff8f;box-shadow:0 0 12px #7cff8f;margin-right:7px}
+.hero{min-height:100svh;position:relative;display:flex;flex-direction:column;justify-content:flex-end;padding:150px max(28px,calc((100vw - var(--max))/2)) 56px;overflow:hidden}.hero-grid{position:absolute;inset:0;opacity:.22;background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:72px 72px;mask-image:linear-gradient(to bottom,black 20%,transparent 85%)}.hero:after{content:"";position:absolute;inset:auto -20% -25% auto;width:70vw;height:70vw;border-radius:50%;background:radial-gradient(circle,rgba(200,255,97,.075),transparent 60%);filter:blur(30px)}.hero-orbit{position:absolute;border:1px solid rgba(255,255,255,.06);border-radius:50%;pointer-events:none}.orbit-a{width:650px;height:650px;right:-220px;top:90px}.orbit-b{width:430px;height:430px;right:-90px;top:200px}.hero-kicker{position:absolute;right:max(28px,calc((100vw - var(--max))/2));top:145px;display:grid;grid-template-columns:repeat(2,auto);gap:8px}.hero-kicker span{padding:8px 12px;border:1px solid #252a33;border-radius:999px;color:#969da7;font-size:11px;text-transform:uppercase;letter-spacing:.14em;background:rgba(11,13,16,.65)}.eyebrow{font-size:11px;letter-spacing:.17em;text-transform:uppercase;color:#8a919c;font-weight:700}.hero-title{margin:18px 0 32px;font-size:clamp(72px,11.2vw,170px);line-height:.78;letter-spacing:-.085em;font-weight:950;max-width:1100px}.title-line{display:block;overflow:hidden;padding-bottom:.08em}.word-reveal{display:block;transform:translateY(110%);animation:rise 1s cubic-bezier(.16,1,.3,1) forwards .18s}.delay-1{animation-delay:.32s}.delay-2{animation-delay:.46s}.accent-line{font-size:.47em;letter-spacing:-.055em;color:transparent;background:linear-gradient(90deg,#f5f6f8 0%,#7b818b 52%,#262a31 96%);-webkit-background-clip:text;background-clip:text}.hero-lower{display:flex;align-items:flex-end;justify-content:space-between;gap:40px;position:relative;z-index:2}.hero-description{max-width:620px;color:#a7adb6;font-size:17px;line-height:1.65;margin:0}.hero-actions{display:flex;gap:12px;flex-wrap:wrap}.button{display:inline-flex;align-items:center;justify-content:center;gap:14px;border-radius:999px;padding:14px 20px;font-weight:700;font-size:13px;border:1px solid transparent;transition:.25s ease}.button.primary{background:var(--text);color:#0b0c0e}.button.primary:hover{transform:translateY(-2px);background:var(--lime)}.button.ghost{border-color:#303641;color:#d4d8de;background:rgba(16,18,22,.5)}.button.ghost:hover{border-color:#626c7b;color:#fff}.button.small{padding:11px 16px;font-size:12px}.button.big{padding:16px 22px}.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;border:1px solid var(--line);border-radius:20px;overflow:hidden;margin-top:44px;position:relative;z-index:2;max-width:780px}.hero-stats div{padding:18px 20px;background:rgba(13,15,18,.74)}.hero-stats strong{display:block;font-size:25px;letter-spacing:-.05em}.hero-stats span{font-size:11px;color:#7d8590;text-transform:uppercase;letter-spacing:.11em}
+.marquee{overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#0b0d10}.marquee-track{white-space:nowrap;display:flex;width:max-content;gap:28px;align-items:center;padding:17px 0;animation:marquee 28s linear infinite;color:#747b86;text-transform:uppercase;font-size:11px;letter-spacing:.16em}.marquee-track i{font-style:normal;color:var(--lime)}
+.section{max-width:var(--max);margin:auto;padding:120px 28px}.section-head{display:flex;justify-content:space-between;align-items:end;gap:40px;margin-bottom:44px}.section-head h2,.about-section h2,.contact-card h2{font-size:clamp(42px,6vw,78px);line-height:.95;letter-spacing:-.06em;margin:12px 0 0;max-width:800px}.section-head>p{max-width:450px;color:#858c96;line-height:1.7;font-size:15px;margin:0}
+.projects-section{padding-top:140px}.project-card{background:linear-gradient(145deg,#0d0f12,#111419);border:1px solid #222731;border-radius:var(--radius);padding:26px;margin-bottom:22px;overflow:hidden;position:relative}.project-card:before{content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent 55%,rgba(255,255,255,.025));pointer-events:none}.project-featured{border-color:#293229}.project-meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}.project-number{font-size:12px;color:#69717d}.project-tags{display:flex;gap:7px;flex-wrap:wrap;justify-content:flex-end}.project-tags span,.about-chips span{font-size:10px;letter-spacing:.09em;text-transform:uppercase;border:1px solid #2b3039;border-radius:999px;padding:7px 9px;color:#9299a4}.project-content{display:grid;grid-template-columns:.86fr 1.14fr;gap:40px;align-items:center}.project-content.reverse{grid-template-columns:1.14fr .86fr}.project-content h3{font-size:clamp(32px,4vw,54px);line-height:1;letter-spacing:-.055em;margin:0 0 18px}.project-content p{color:#9ca3ad;font-size:15px;line-height:1.7;max-width:590px}.project-points{list-style:none;margin:26px 0;padding:0;border-top:1px solid #282d35}.project-points li{padding:12px 0;border-bottom:1px solid #282d35;color:#c4c9d0;font-size:13px}.project-points li:before{content:"↳";color:var(--lime);margin-right:10px}.project-links{margin-top:24px}.workflow-visual{min-height:420px;border:1px solid #232a34;border-radius:22px;background:radial-gradient(circle at 50% 45%,#151a21,#0b0d10 70%);position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}.workflow-visual:after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:36px 36px;mask-image:radial-gradient(circle,black,transparent 80%)}.workflow-visual svg{width:92%;position:relative;z-index:2}.node rect{fill:#11151b;stroke:#3a4350;stroke-width:1.5}.node text{fill:#e7eaee;font-size:16px;text-anchor:middle;font-weight:700}.node text.sub{fill:#77808c;font-size:10px;font-weight:500}.wires path{stroke-dasharray:8 9;animation:dash 16s linear infinite}.visual-badge{position:absolute;right:18px;bottom:18px;z-index:4;border:1px solid #303944;background:rgba(8,10,12,.86);padding:10px 13px;border-radius:13px;font-weight:900;letter-spacing:-.03em}.visual-badge span{color:var(--lime);font-size:10px;letter-spacing:.1em;margin-left:7px}.terminal-card{width:78%;position:relative;z-index:3;background:#080a0d;border:1px solid #2f3742;border-radius:18px;box-shadow:0 26px 90px rgba(0,0,0,.4);overflow:hidden;transform:rotate(-2deg)}.terminal-top{height:42px;border-bottom:1px solid #222833;display:flex;align-items:center;gap:7px;padding:0 14px}.terminal-top span{width:8px;height:8px;border-radius:50%;background:#3a414c}.terminal-top span:first-child{background:#ff746c}.terminal-top span:nth-child(2){background:#e8bf58}.terminal-top span:nth-child(3){background:#75c96f}.terminal-top small{margin-left:auto;color:#5d6672;font-size:9px}.terminal-card pre{margin:0;padding:28px;color:#c4cad3;font:13px/1.9 ui-monospace,SFMono-Regular,Menlo,monospace}.terminal-card b{color:var(--blue);font-weight:500}.signal-lines{position:absolute;inset:0;z-index:1}.signal-lines span{position:absolute;height:1px;background:linear-gradient(90deg,transparent,var(--blue),transparent);width:80%;left:10%;animation:pulse 3s ease-in-out infinite}.signal-lines span:nth-child(1){top:18%;animation-delay:.2s}.signal-lines span:nth-child(2){top:35%;animation-delay:.9s}.signal-lines span:nth-child(3){top:64%;animation-delay:1.4s}.signal-lines span:nth-child(4){top:82%;animation-delay:2.1s}.phone-shell{width:240px;height:430px;border:7px solid #222832;border-radius:38px;background:#080a0d;padding:9px;position:relative;z-index:3;box-shadow:0 30px 80px rgba(0,0,0,.5);transform:rotate(3deg)}.phone-notch{position:absolute;top:7px;left:50%;transform:translateX(-50%);width:72px;height:16px;border-radius:20px;background:#030405;z-index:4}.phone-screen{height:100%;border-radius:27px;padding:34px 12px 12px;background:linear-gradient(160deg,#15191f,#0c0f13)}.phone-head{font-size:11px;display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}.phone-head .online{color:#86ff9b;font-size:7px}.metric-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;margin-bottom:13px}.metric-grid div{border:1px solid #29303a;border-radius:9px;padding:8px 4px;text-align:center;background:#10141a}.metric-grid b{display:block;font-size:14px}.metric-grid small{color:#68717d;font-size:6px}.lead-row{display:flex;align-items:center;gap:8px;padding:11px 8px;border:1px solid #262d36;border-radius:10px;margin-bottom:7px;background:#0f1318}.lead-row b{font-size:8px;display:block}.lead-row small{font-size:6px;color:#78818d}.lead-row em{font-style:normal;margin-left:auto;color:#717a86}.lead-dot{width:7px;height:7px;border-radius:50%;background:#6d7480}.lead-dot.hot{background:var(--lime);box-shadow:0 0 9px rgba(200,255,97,.6)}.lead-row.dim{opacity:.55}
+.services-grid{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:24px;overflow:hidden}.services-grid article{min-height:250px;padding:24px;border-right:1px solid var(--line);background:linear-gradient(180deg,#0e1013,#0b0d10);transition:.25s}.services-grid article:last-child{border-right:0}.services-grid article:hover{background:#12151a;transform:translateY(-4px)}.services-grid span{font-size:10px;color:#6c7480}.services-grid h3{font-size:24px;letter-spacing:-.04em;margin-top:80px;margin-bottom:12px}.services-grid p{font-size:13px;line-height:1.6;color:#868e99}
+.about-section{border-top:1px solid var(--line);border-bottom:1px solid var(--line);max-width:none;padding-left:max(28px,calc((100vw - var(--max))/2));padding-right:max(28px,calc((100vw - var(--max))/2));background:#0a0c0f}.about-grid{max-width:var(--max);margin:auto;display:grid;grid-template-columns:1.2fr .8fr;gap:80px;align-items:start}.about-section h2{font-size:clamp(42px,5.6vw,76px)}.about-copy{padding-top:36px}.about-copy p{color:#a2a9b2;line-height:1.75;font-size:15px}.about-chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:28px}.contact-section{padding-top:150px;padding-bottom:150px}.contact-card{border:1px solid #29313b;border-radius:36px;padding:clamp(30px,6vw,78px);background:radial-gradient(circle at 88% 10%,rgba(200,255,97,.08),transparent 28%),linear-gradient(135deg,#101318,#0a0c0f);position:relative;overflow:hidden}.contact-card:after{content:"";position:absolute;right:-110px;top:-110px;width:320px;height:320px;border:1px solid rgba(255,255,255,.08);border-radius:50%;box-shadow:0 0 0 60px rgba(255,255,255,.018),0 0 0 120px rgba(255,255,255,.01)}.contact-card h2{max-width:850px;position:relative;z-index:2}.contact-card>p:not(.eyebrow){color:#969ea8;max-width:580px;line-height:1.7;position:relative;z-index:2}.contact-actions{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap;position:relative;z-index:2}footer{max-width:var(--max);margin:auto;padding:24px 28px 44px;color:#606874;font-size:11px;display:flex;justify-content:space-between;border-top:1px solid var(--line)}
+.js [data-reveal]{opacity:0;transform:translateY(24px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}.js [data-reveal].visible{opacity:1;transform:none}.js .site-header[data-reveal]{transform:translateY(-12px)}.js .site-header[data-reveal].visible{transform:none}
+@keyframes rise{to{transform:translateY(0)}}@keyframes marquee{to{transform:translateX(-50%)}}@keyframes dash{to{stroke-dashoffset:-200}}@keyframes pulse{0%,100%{opacity:.12;transform:scaleX(.85)}50%{opacity:.8;transform:scaleX(1)}}
+@media(max-width:900px){.site-header{height:68px;padding:0 20px}.site-header nav{display:none}.status-pill{margin-left:auto;font-size:10px}.hero{padding:120px 20px 38px;min-height:92svh}.hero-kicker{display:none}.hero-title{font-size:clamp(58px,18vw,105px);line-height:.82;margin-top:14px}.accent-line{font-size:.47em}.hero-lower{display:block}.hero-description{font-size:15px;max-width:540px}.hero-actions{margin-top:24px}.hero-stats{margin-top:34px}.hero-stats div{padding:15px 12px}.hero-stats strong{font-size:20px}.hero-stats span{font-size:8px}.section{padding:88px 20px}.section-head{display:block}.section-head>p{margin-top:18px}.project-card{padding:18px;border-radius:22px}.project-content,.project-content.reverse{grid-template-columns:1fr;gap:24px}.project-content.reverse .workflow-visual{order:2}.workflow-visual{min-height:330px}.services-grid{grid-template-columns:1fr 1fr}.services-grid article:nth-child(2){border-right:0}.services-grid article:nth-child(-n+2){border-bottom:1px solid var(--line)}.services-grid article{min-height:200px}.services-grid h3{margin-top:46px}.about-grid{grid-template-columns:1fr;gap:20px}.about-copy{padding-top:0}.contact-section{padding-top:90px;padding-bottom:90px}.contact-card{border-radius:26px}.contact-actions .button{width:100%}footer{padding:20px;display:block}footer span{display:block;margin:6px 0}.cursor-glow{display:none}}
+@media(max-width:520px){.hero{padding-top:105px}.hero-title{font-size:17vw}.hero-stats{grid-template-columns:1fr}.hero-stats div{display:flex;justify-content:space-between;align-items:center}.hero-stats strong{font-size:18px}.project-meta{align-items:flex-start}.project-tags{max-width:78%}.workflow-visual{min-height:290px}.terminal-card{width:90%}.terminal-card pre{font-size:10px;padding:20px}.phone-shell{transform:scale(.82) rotate(3deg)}.services-grid{grid-template-columns:1fr}.services-grid article{border-right:0;border-bottom:1px solid var(--line)!important;min-height:170px}.services-grid article:last-child{border-bottom:0!important}.services-grid h3{margin-top:34px}.section-head h2,.about-section h2,.contact-card h2{font-size:42px}.button{width:100%}.hero-actions{display:grid}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}.word-reveal{transform:none}.marquee-track{animation:none}.cursor-glow{display:none}}
+
+  
+.generic-visual{padding:34px}.generic-panel{position:relative;z-index:3;width:82%;min-height:280px;border:1px solid #2f3742;border-radius:22px;background:linear-gradient(155deg,#10141a,#090b0e);padding:28px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 28px 80px rgba(0,0,0,.32)}.generic-panel .generic-mark{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--lime)}.generic-panel h4{font-size:clamp(28px,4vw,48px);letter-spacing:-.055em;line-height:1;margin:18px 0;color:#eef2f6}.generic-panel p{margin:0;color:#818995;font-size:13px;line-height:1.6}.generic-lines{display:grid;gap:9px;margin-top:26px}.generic-lines i{height:7px;border-radius:99px;background:#202630;display:block}.generic-lines i:nth-child(1){width:88%}.generic-lines i:nth-child(2){width:72%}.generic-lines i:nth-child(3){width:58%;background:linear-gradient(90deg,var(--lime),#22301c)}
+</style>
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="cursor-glow" aria-hidden="true"></div>
+
+  <header class="site-header" data-reveal>
+    <a class="brand" href="#top" aria-label="Jawad Sabir home">JS<span class="brand-dot">.</span></a>
+    <nav aria-label="Primary navigation">
+      <a href="#work">Work</a>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="status-pill" href="#contact"><span></span> Available for remote work</a>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="hero-orbit orbit-a" aria-hidden="true"></div>
+      <div class="hero-orbit orbit-b" aria-hidden="true"></div>
+
+      <div class="hero-kicker" data-reveal>
+        <span>n8n</span><span>APIs</span><span>Webhooks</span><span>LLMs</span>
+      </div>
+
+      <div class="hero-copy">
+        <p class="eyebrow" data-reveal>JAWAD SABIR / AUTOMATION DEVELOPER</p>
+        <h1 id="hero-title" class="hero-title" aria-label="Build systems that keep working">
+          <span class="title-line"><span class="word-reveal">BUILD</span></span>
+          <span class="title-line"><span class="word-reveal delay-1">SYSTEMS</span></span>
+          <span class="title-line accent-line"><span class="word-reveal delay-2">THAT KEEP WORKING.</span></span>
+        </h1>
+        <div class="hero-lower" data-reveal>
+          <p class="hero-description">I build n8n automations that connect tools, handle leads, move data between apps and use AI where it actually helps. I care just as much about retries, duplicates and failed API calls as the happy path.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#work">View projects <span>↘</span></a>
+            <a class="button ghost" href="mailto:jawadsabir150@gmail.com">Email me</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-stats" data-reveal>
+        <div><strong>23/23</strong><span>Reliability tests</span></div>
+        <div><strong>9/9</strong><span>LLM workflow tests</span></div>
+        <div><strong>22/22</strong><span>Opportunity Engine regression</span></div>
+      </div>
+    </section>
+
+    <section class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>n8n automation</span><i>✦</i><span>API integration</span><i>✦</i><span>webhooks</span><i>✦</i><span>reliable workflows</span><i>✦</i><span>LLM integration</span><i>✦</i><span>failure handling</span><i>✦</i>
+        <span>n8n automation</span><i>✦</i><span>API integration</span><i>✦</i><span>webhooks</span><i>✦</i><span>reliable workflows</span><i>✦</i><span>LLM integration</span><i>✦</i><span>failure handling</span><i>✦</i>
+      </div>
+    </section>
+
+    <section id="work" class="section projects-section">
+      <div class="section-head" data-reveal>
+        <div>
+          <p class="eyebrow">SELECTED WORK</p>
+          <h2>Proof, not promises.</h2>
+        </div>
+        <p>Real workflow logic, test evidence and documentation you can inspect directly.</p>
+      </div>
+
+      <!-- AUTO_PROJECTS_START -->
+      <article class="project-card project-featured" data-reveal data-project-id="lead-routing-reliability">
+        <div class="project-meta"><span class="project-number">01</span><div class="project-tags"><span>n8n</span><span>Reliability</span><span>Webhooks</span></div></div>
+        <div class="project-content"><div><h3>Lead Routing Reliability Demo</h3><p>A lead-intake and routing workflow built to survive the boring failures that break real automations: duplicates, partial failures, retries and replay.</p><ul class="project-points"><li>Idempotency and duplicate protection</li><li>Retry/backoff with explicit failure paths</li><li>Safe replay without duplicate side effects</li><li>23/23 acceptance tests passed</li></ul><div class="project-links"><a class="button small primary" target="_blank" rel="noopener" href="https://github.com/jadusaa/n8n-reliability-lead-routing-demo">Open GitHub ↗</a></div></div><div class="workflow-visual reliability-visual" role="img" aria-label="Abstract workflow reliability diagram">
+      <svg viewBox="0 0 760 280" aria-hidden="true">
+        <g class="wires" fill="none" stroke="#52606f" stroke-width="3">
+          <path d="M145 140 H260"/><path d="M370 140 H485"/><path d="M595 140 H690"/>
+        </g>
+        <g class="node"><rect x="35" y="102" rx="16" width="110" height="76"/><text x="90" y="136">Webhook</text><text class="sub" x="90" y="157">lead intake</text></g>
+        <g class="node"><rect x="260" y="102" rx="16" width="110" height="76"/><text x="315" y="136">Validate</text><text class="sub" x="315" y="157">dedupe</text></g>
+        <g class="node"><rect x="485" y="102" rx="16" width="110" height="76"/><text x="540" y="136">Route</text><text class="sub" x="540" y="157">safe state</text></g>
+        <g class="node"><rect x="650" y="102" rx="16" width="85" height="76"/><text x="692" y="136">Done</text><text class="sub" x="692" y="157">receipt</text></g>
+      </svg>
+      <div class="visual-badge">23 / 23 <span>PASS</span></div>
+    </div></div>
+      </article>
+      <article class="project-card" data-reveal data-project-id="ai-lead-classifier">
+        <div class="project-meta"><span class="project-number">02</span><div class="project-tags"><span>n8n</span><span>LLM</span><span>API</span></div></div>
+        <div class="project-content reverse"><div class="workflow-visual terminal-visual" role="img" aria-label="LLM structured response terminal">
+      <div class="terminal-card"><div class="terminal-top"><span></span><span></span><span></span><small>structured_output.json</small></div><pre>{
+  <b>"category"</b>: "hvac",
+  <b>"urgency"</b>: "high",
+  <b>"intent"</b>: "service_request",
+  <b>"confidence"</b>: 0.96
+}</pre></div>
+      <div class="signal-lines"><span></span><span></span><span></span><span></span></div>
+      <div class="visual-badge">9 / 9 <span>PASS</span></div>
+    </div><div><h3>AI Lead Classifier</h3><p>A real LLM call inside n8n using Hive / GLM 5.3 Flash. The workflow trusts nothing blindly: output is parsed, schema-validated, routed and rejected cleanly when the model misbehaves.</p><ul class="project-points"><li>Structured JSON + schema validation</li><li>Transient 503 recovery with retries</li><li>Malformed output returns an error, not a guess</li><li>9/9 acceptance tests passed</li></ul><div class="project-links"><a class="button small primary" target="_blank" rel="noopener" href="https://github.com/jadusaa/n8n-ai-lead-classifier-demo">Open GitHub ↗</a></div></div></div>
+      </article>
+      <article class="project-card" data-reveal data-project-id="opportunity-engine">
+        <div class="project-meta"><span class="project-number">03</span><div class="project-tags"><span>n8n</span><span>Gmail</span><span>PWA</span></div></div>
+        <div class="project-content"><div><h3>Opportunity Engine</h3><p>A private, mobile-first acquisition control system that finds opportunities, scores them, drafts outreach, tracks replies and manages follow-ups while keeping outbound actions approval-gated.</p><ul class="project-points"><li>Mobile PWA + private Tailscale access</li><li>Gmail send / reply watcher with idempotency</li><li>Lead scoring, approval gates and follow-up cancellation</li><li>22/22 live regression tests passed</li></ul><div class="project-links"><a class="button small ghost" href="mailto:jawadsabir150@gmail.com?subject=Opportunity%20Engine%20demo">Private demo on request</a></div></div><div class="workflow-visual phone-visual" aria-label="Mobile opportunity control dashboard">
+      <div class="phone-shell"><div class="phone-notch"></div><div class="phone-screen">
+        <div class="phone-head"><strong>Opportunity Engine</strong><span class="online">● Online</span></div>
+        <div class="metric-grid"><div><b>03</b><small>Approval</small></div><div><b>01</b><small>Replies</small></div><div><b>02</b><small>Follow-ups</small></div></div>
+        <div class="lead-row"><span class="lead-dot hot"></span><div><b>n8n Automation Role</b><small>Score 91 · Ready</small></div><em>→</em></div>
+        <div class="lead-row"><span class="lead-dot"></span><div><b>AI Workflow Project</b><small>Score 86 · Drafted</small></div><em>→</em></div>
+        <div class="lead-row dim"><span class="lead-dot"></span><div><b>Agency Lead</b><small>Waiting · 2d</small></div><em>→</em></div>
+      </div></div><div class="visual-badge">22 / 22 <span>PASS</span></div>
+    </div></div>
+      </article>
+      <!-- AUTO_PROJECTS_END -->
+    </section>
+
+    <section id="services" class="section services-section">
+      <div class="section-head" data-reveal>
+        <div><p class="eyebrow">WHAT I DO</p><h2>Build. Fix. Connect.</h2></div>
+        <p>Small, practical automation work with clear handoff — no bloated stack for the sake of it.</p>
+      </div>
+      <div class="services-grid">
+        <article data-reveal><span>01</span><h3>n8n Workflows</h3><p>Lead handling, routing, approvals, follow-ups and custom business logic.</p></article>
+        <article data-reveal><span>02</span><h3>API + Webhooks</h3><p>Connect tools, normalize data and build reliable request/response flows.</p></article>
+        <article data-reveal><span>03</span><h3>AI Automation</h3><p>LLM calls with structured output, validation and failure handling.</p></article>
+        <article data-reveal><span>04</span><h3>Workflow Repair</h3><p>Debug brittle automations, add retries, dedupe and safer failure paths.</p></article>
+      </div>
+    </section>
+
+    <section id="about" class="section about-section">
+      <div class="about-grid">
+        <div data-reveal>
+          <p class="eyebrow">ABOUT</p>
+          <h2>I like automations that still make sense when something goes wrong.</h2>
+        </div>
+        <div class="about-copy" data-reveal>
+          <p>I’m Jawad Sabir, an n8n automation developer based in Pakistan and available for remote work. I build reliable workflows around lead handling, APIs, webhooks and AI integrations.</p>
+          <p>My work focuses on the parts that matter after a workflow goes live — validation, retries, duplicate protection, safe recovery and clear failure handling. The projects below include working workflows, test evidence and documentation so you can inspect how they’re built.</p>
+          <div class="about-chips"><span>Remote</span><span>25–30 hrs/week</span><span>Available for projects</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section contact-section">
+      <div class="contact-card" data-reveal>
+        <p class="eyebrow">CONTACT</p>
+        <h2>Have a workflow that needs building or fixing?</h2>
+        <p>Send the problem, current tools and what “done” should look like. I’ll tell you how I’d approach it.</p>
+        <div class="contact-actions">
+          <a class="button primary big" href="mailto:jawadsabir150@gmail.com">jawadsabir150@gmail.com ↗</a>
+          <a class="button ghost big" target="_blank" rel="noopener" href="https://github.com/jadusaa">GitHub ↗</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>© <span id="year"></span> Jawad Sabir</span>
+    <span>Built as a static site — fast, simple, deployable anywhere.</span>
+  </footer>
+
+  <script>
+(() => {
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const reveal = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        reveal.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('[data-reveal]').forEach((el, i) => {
+    el.style.transitionDelay = `${Math.min(i * 35, 210)}ms`;
+    reveal.observe(el);
+  });
+
+  const glow = document.querySelector('.cursor-glow');
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (glow && !reduce && window.matchMedia('(pointer:fine)').matches) {
+    window.addEventListener('pointermove', (e) => {
+      glow.style.left = `${e.clientX}px`;
+      glow.style.top = `${e.clientY}px`;
+    }, { passive: true });
+  }
+})();
+
+  </script>
+</body>
+</html>
