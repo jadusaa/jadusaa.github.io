@@ -44,9 +44,14 @@
       ],
       "links": [
         {
+          "label": "Watch Live Workflow Demo",
+          "url": "media/lead-routing-proof-walkthrough.mp4",
+          "kind": "primary"
+        },
+        {
           "label": "View GitHub",
           "url": "https://github.com/jadusaa/n8n-reliability-lead-routing-demo",
-          "kind": "primary"
+          "kind": "ghost"
         },
         {
           "label": "View Test Evidence",
@@ -59,6 +64,7 @@
           "kind": "ghost"
         }
       ],
+      "link_note": "Watch a valid lead run, a duplicate get blocked, and the reliability checks in action.",
       "media": [],
       "visibility": "public",
       "public_case_study": true

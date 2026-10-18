@@ -137,10 +137,11 @@ def render_project(p, idx):
         legacy_bullet_list = f'<ul class="project-points">{bullets}</ul>'
     links = links_html(p.get("links")) or (
         f'<div class="project-links"><a class="button small primary" href="{esc(p["url"])}">{esc(p.get("cta","View project"))}</a></div>' if p.get("url") else "")
+    link_note = f'<p class="project-link-note">{esc(p["link_note"])}</p>' if p.get("link_note") else ""
 
     text = (f'<div><h3>{esc(p["title"])}</h3>{one}'
             f'{problem}{build}{flow}{rel}{proof}{tech}{legacy_bullet_list}'
-            f'{media_html(p.get("media"))}{links}</div>')
+            f'{media_html(p.get("media"))}{links}{link_note}</div>')
     reverse = bool(p.get("reverse"))
     inner = visual + text if reverse else text + visual
     classes = "project-card case-study" + (" project-featured" if p.get("featured") else "")
