@@ -93,7 +93,8 @@ def links_html(links):
     for l in links:
         target = ' target="_blank" rel="noopener"' if l["url"].startswith("http") else ""
         cls = "primary" if l.get("kind") == "primary" else "ghost"
-        out.append(f'<a class="button small {cls}"{target} href="{esc(l["url"])}">{esc(l["label"])}{" ↗" if target else ""}</a>')
+        track = f' onclick="gtag(\'event\',\'cta_click\',{{\'link_label\':\'{esc(l["label"])}\',\'link_url\':\'{esc(l["url"])}\'}});"'
+        out.append(f'<a class="button small {cls}"{target} href="{esc(l["url"])}"{track}>{esc(l["label"])}{" ↗" if target else ""}</a>')
     return f'<div class="project-links">{"".join(out)}</div>'
 
 
