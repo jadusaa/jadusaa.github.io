@@ -165,3 +165,96 @@ cd /Users/lg96/PORTFOLIO_SITE
 git checkout main && git merge --ff-only portfolio-buyer-clarity && git push origin main
 ```
 GitHub Pages then redeploys `index.html`. Requesting approval for **this one action only**.
+
+
+---
+
+# ADDENDUM — verification pass on the two flagged gaps
+
+Requested checks: reconcile the anchor count, confirm the contrast fixes, then look at the preview.
+Both gaps were real. **The contrast gap was the more serious one: the previous report claimed contrast fixes that had never been re-measured, and the accent gradient was still failing.**
+
+## A1. Anchor count reconciled — 19 elements, 15 unique destinations
+
+The "19" and the 15-row list were both correct but measured different things, which was not stated:
+
+| Measure | Count |
+|---|---|
+| `<a href>` elements in the DOM | **19** |
+| Unique `href` destinations | **15** |
+| Destinations verified | **15 / 15** |
+
+Duplicates that account for the difference:
+- `#contact` × **3** (nav link, "Available for remote work" pill, "Discuss a workflow")
+- `media/lead-routing-proof-walkthrough-narrated.mp4` × **3** (hero CTA, video element, download fallback)
+
+Re-verified this pass, every unique destination:
+- 5 in-page anchors — all targets exist
+- 6 GitHub links — all **HTTP 200**
+- 2 `mailto:` → `jawadsabir150@gmail.com`
+- 1 local MP4 — 200, 5,509,979 B
+
+**No anchor was missed.** Two new anchors appeared since the earlier audit (the video's download fallback and the in-card "Watch recorded demo"), which is why the element count moved from 17 to 19.
+
+## A2. Contrast — the claim was false; now measured and fixed
+
+A proper audit was run this time: every rendered text run, composited against its real background, WCAG relative luminance, large-text rule applied (≥24px, or ≥18.66px bold → 3:1; otherwise 4.5:1).
+
+**Result before the fix — one genuine failure that the earlier report had claimed was fine:**
+
+`.accent-line` — the second headline line — is **gradient text** (`background-clip:text`), so it has `color: transparent` and cannot be measured by a naive colour check. Measuring the gradient stops:
+
+| Stop | Colour | Contrast on `#08090b` | Verdict (needs ≥3:1 large) |
+|---|---|---|---|
+| 0% | `#f5f6f8` | 18.42:1 | pass |
+| 52% | `#7b818b` | 5.08:1 | pass |
+| **96%** | **`#262a31`** | **1.38:1** | **FAIL — nearly invisible** |
+
+So "BUILT AND REPAIRED." faded out into the background at its right end. Fixed by raising the stops to `#9aa1ab` (7.65:1) and `#646a74` (3.66:1).
+
+**Re-measured after the fix, at both widths:**
+
+| Viewport | Text runs measured | Failures |
+|---|---|---|
+| 390px | 168 | **0** |
+| 1440px | 168 | **0** |
+
+The originally-failing surface colours, now confirmed in the DOM:
+
+| Element | Before | Now | Ratio |
+|---|---|---|---|
+| `footer` | `#606874` 3.54:1 | `#8d95a1` | 6.05:1 |
+| `.project-number` | `#69717d` 4.04:1 | `#8d95a1` | 6.05:1 |
+| `.services-grid span` (now `.offer-num`) | `#6c7480` 4.22:1 | `#8d95a1` | 6.05:1 |
+| `.terminal-top small` | `#5d6672` 3.42:1 | `#8d95a1` | 6.05:1 |
+| `.metric-grid small` | `#68717d` 4.03:1 | `#8d95a1` | 6.05:1 |
+| `.accent-line` gradient end | 1.38:1 | `#646a74` | 3.66:1 |
+
+## A3. Two layout defects found during the visual review
+
+The DOM geometry checks had passed, but they were measuring the wrong things. Looking at the render exposed:
+
+1. **Case-study grid collapse.** `.project-content` was a **two-column grid** inherited from the old design. The rewritten case study places 10 children in it, so they scattered across two columns: video 469px, paragraphs 590/621px, alternating — visually incoherent. Replaced with a single-column `.project-body` (max 860px). Video is now **860px** on desktop.
+2. **Video distorted.** With `object-fit:contain` and an `auto 1920/1080` intrinsic ratio inside a grid cell, the box rendered **2.16:1** instead of **1.78:1** — the video was letterboxed inside a wrong-shaped frame. Fixed with an explicit `aspect-ratio:16/9`.
+
+**Verified after both fixes:**
+
+| Width | Overflow | Video | Aspect | Truncated text | Off-screen elements |
+|---|---|---|---|---|---|
+| 390px | 0 | 312×176 | **1.778** | 0 | 0 |
+| 768px | 0 | 675×380 | **1.778** | 0 | 0 |
+| 1440px | 0 | 860×484 | **1.778** | 0 | 0 |
+
+## A4. Visual review — what a human eye actually saw
+
+| Screen | Verdict |
+|---|---|
+| Mobile hero (390px) | **Pass.** Headline fully visible, both buttons full-width and clearly differentiated (filled primary / outlined secondary), balanced rhythm, nothing clipped except the intentional marquee. |
+| Desktop case study | **Pass.** Widescreen video with real poster, native controls rendering `0:00 / 1:58`, clear hierarchy, comfortable spacing. |
+| Mobile case study | **Not visually confirmed.** The image-analysis service returned connection errors repeatedly for this view. Geometry is conclusive (312×176, 1.778, controls present, poster set, caption 9px below the player, 44px tap targets, body 312px wide, 0 truncation) but **this one view has not been seen by an eye.** |
+
+## A5. Remaining limitation, stated plainly
+
+The vision service failed on roughly half the frames this pass, including the mobile case-study view. Everything measurable was measured and passes; **one mobile view rests on geometry rather than sight.** That is the only thing standing between this and a fully eyeballed sign-off.
+
+Branch `portfolio-buyer-clarity` is now at **`5e167e0`**. `main` still `49e1501`. Live site untouched.
