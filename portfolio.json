@@ -72,7 +72,7 @@
       "video": {
         "src": "media/lead-routing-proof-walkthrough-narrated.mp4",
         "poster": "assets/video/lead-routing-poster.jpg",
-        "duration_label": "1 min 60 s",
+        "duration_label": "2 min",
         "caption": "Recorded walkthrough of the workflow running in n8n. Burned-in captions, no voice-over required."
       },
       "observable": [
@@ -201,7 +201,7 @@
       "build": "",
       "flow": "",
       "reliability": [],
-      "proof": "22/22 live regression tests passed (API, qualification, failure handling). Controlled Gmail loop verified end-to-end. Mobile QA passed at 390×844. Sanitized architecture diagram only — no operational data.",
+      "proof": "",
       "tech": [
         "n8n",
         "FastAPI",

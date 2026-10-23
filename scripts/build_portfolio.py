@@ -121,9 +121,9 @@ def video_html(v):
     if not v:
         return ""
     poster = f' poster="{esc(v["poster"])}"' if v.get("poster") else ""
+    # No <track> here on purpose: the walkthrough's captions are burned into the video.
+    # A <track> pointing at a missing or empty file would render a broken captions menu.
     tracks = ""
-    if v.get("captions"):
-        tracks = f'<track kind="captions" src="{esc(v["captions"])}" srclang="en" label="English captions" default>'
     duration = f'<span class="video-duration">{esc(v["duration_label"])}</span>' if v.get("duration_label") else ""
     return (
         '<figure class="case-video">'
@@ -176,7 +176,10 @@ def render_project(p, idx):
     evidence = evidence_html(p.get("evidence") or p.get("reliability") or [])
     tech = ""
     if p.get("tech"):
-        tech = evidence_html(None) if False else f'<div class="case-tech"><span class="case-tech-label">Tech</span><div class="project-tags">' + "".join(f"<span>{esc(x)}</span>" for x in p["tech"]) + "</div></div>"
+        tech = ('<div class="case-tech"><span class="case-tech-label">Tech</span>'
+                '<div class="project-tags">'
+                + "".join(f"<span>{esc(x)}</span>" for x in p["tech"])
+                + "</div></div>")
 
     links = links_html(p.get("links")) or (
         f'<div class="project-links"><a class="button small primary" href="{esc(p["url"])}">{esc(p.get("cta","View project"))}</a></div>' if p.get("url") else "")
