@@ -203,7 +203,7 @@ def render_project(p, idx):
     rev_class = " reverse" if reverse else ""
     return f'''      <article class="{classes}" data-reveal data-project-id="{esc(p['id'])}">
         <div class="project-meta"><span class="project-number">{idx:02d}</span><div class="project-tags">{tags}</div></div>
-        <div class="project-content{rev_class}">{inner}</div>
+        <div class="project-body">{inner}</div>
       </article>'''
 
 
