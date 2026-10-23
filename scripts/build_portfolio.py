@@ -112,6 +112,38 @@ def case_block(title, body_html):
     return f'<div class="case-block"><h4>{esc(title)}</h4>{body_html}</div>'
 
 
+def badge_html(text):
+    return f'<p class="case-badge"><span aria-hidden="true">&#9679;</span> {esc(text)}</p>'
+
+
+def video_html(v):
+    """Accessible, no-autoplay, captioned-looking demo video with a real poster frame."""
+    if not v:
+        return ""
+    poster = f' poster="{esc(v["poster"])}"' if v.get("poster") else ""
+    tracks = ""
+    if v.get("captions"):
+        tracks = f'<track kind="captions" src="{esc(v["captions"])}" srclang="en" label="English captions" default>'
+    duration = f'<span class="video-duration">{esc(v["duration_label"])}</span>' if v.get("duration_label") else ""
+    return (
+        '<figure class="case-video">'
+        f'<video controls preload="metadata" playsinline{poster} width="1920" height="1080">'
+        f'<source src="{esc(v["src"])}" type="video/mp4">'
+        f'{tracks}'
+        f'<a href="{esc(v["src"])}">Download the {esc(v.get("duration_label","") or "")} recorded demo (MP4)</a>'
+        '</video>'
+        f'<figcaption>{esc(v.get("caption",""))}{duration}</figcaption>'
+        '</figure>'
+    )
+
+
+def evidence_html(items, label="Technical detail and test evidence"):
+    if not items:
+        return ""
+    lis = "".join(f"<li>{esc(x)}</li>" for x in items)
+    return f'<details class="case-evidence"><summary>{esc(label)}</summary><ul class="project-points">{lis}</ul></details>'
+
+
 def render_project(p, idx):
     if not p.get("public_safe"):
         return ""
@@ -119,32 +151,51 @@ def render_project(p, idx):
     metric, label = p.get("metric", ""), p.get("metric_label", "")
     vt = p.get("visual_type", "generic")
     visual = VISUALS[vt](metric, label) if vt in VISUALS else generic_visual(metric, label, p["title"])
+    reverse = bool(p.get("reverse"))
 
     one = f'<p class="case-one-liner">{esc(p["one_liner"])}</p>' if p.get("one_liner") else ""
-    problem = case_block("Problem", f"<p>{esc(p['problem'])}</p>") if p.get("problem") else ""
-    build = case_block("What I built", f"<p>{esc(p['build'])}</p>") if p.get("build") else ""
-    rel = ""
-    if p.get("reliability"):
-        rel = case_block("Reliability & failure handling",
-                         '<ul class="project-points">' + "".join(f"<li>{esc(x)}</li>" for x in p["reliability"]) + "</ul>")
-    flow = f'<div class="case-flow">{esc(p["flow"])}</div>' if p.get("flow") else ""
-    proof = case_block("Proof", f"<p>{esc(p['proof'])}</p>") if p.get("proof") else ""
+
+    # Short answers to the four buyer questions.
+    summary = ""
+    if p.get("problem"):
+        summary += case_block("Problem demonstrated", f'<p>{esc(p["problem"])}</p>')
+    behaviours = ""
+    if p.get("observable"):
+        behaviours = case_block(
+            "What it visibly does",
+            '<ul class="project-points">' + "".join(f"<li>{esc(x)}</li>" for x in p["observable"]) + "</ul>")
+    tested = ""
+    if p.get("tested") or p.get("not_tested"):
+        body = f'<p>{esc(p.get("tested",""))}</p>'
+        if p.get("not_tested"):
+            body += f'<p class="case-scope"><strong>Outside scope:</strong> {esc(p["not_tested"])}</p>'
+        tested = case_block("What was actually tested", body)
+
+    video = video_html(p.get("video"))
+    badge = badge_html(p.get("disclosure") or "Independent demo &bull; synthetic data")
+    evidence = evidence_html(p.get("evidence") or p.get("reliability") or [])
     tech = ""
     if p.get("tech"):
-        tech = case_block("Tech", '<div class="project-tags">'+"".join(f"<span>{esc(x)}</span>" for x in p["tech"])+"</div>")
-    legacy_bullet_list = ""
-    if not (problem or build):
-        bullets = "".join(f"<li>{esc(b)}</li>" for b in p.get("bullets", []))
-        legacy_bullet_list = f'<ul class="project-points">{bullets}</ul>'
+        tech = evidence_html(None) if False else f'<div class="case-tech"><span class="case-tech-label">Tech</span><div class="project-tags">' + "".join(f"<span>{esc(x)}</span>" for x in p["tech"]) + "</div></div>"
+
     links = links_html(p.get("links")) or (
         f'<div class="project-links"><a class="button small primary" href="{esc(p["url"])}">{esc(p.get("cta","View project"))}</a></div>' if p.get("url") else "")
     link_note = f'<p class="project-link-note">{esc(p["link_note"])}</p>' if p.get("link_note") else ""
 
-    text = (f'<div><h3>{esc(p["title"])}</h3>{one}'
-            f'{problem}{build}{flow}{rel}{proof}{tech}{legacy_bullet_list}'
-            f'{media_html(p.get("media"))}{links}{link_note}</div>')
-    reverse = bool(p.get("reverse"))
-    inner = visual + text if reverse else text + visual
+    inner = f"""<div class="case-head">
+          <h3>{esc(p['title'])}</h3>
+          {badge}
+        </div>
+        {one}
+        {video}
+        {summary}
+        {behaviours}
+        {tested}
+        {links}
+        {link_note}
+        {evidence}
+        {tech}"""
+
     classes = "project-card case-study" + (" project-featured" if p.get("featured") else "")
     rev_class = " reverse" if reverse else ""
     return f'''      <article class="{classes}" data-reveal data-project-id="{esc(p['id'])}">
