@@ -166,7 +166,15 @@ def render_project(p, idx):
             '<ul class="project-points">' + "".join(f"<li>{esc(x)}</li>" for x in p["observable"]) + "</ul>")
     tested = ""
     if p.get("tested") or p.get("not_tested"):
-        body = f'<p>{esc(p.get("tested",""))}</p>'
+        scen = ""
+        if p.get("buyer_scenarios"):
+            rows = "".join(
+                f'<li><strong>{esc(s.get("situation",""))}</strong> {esc(s.get("result",""))}</li>'
+                for s in p["buyer_scenarios"])
+            scen = ('<p class="case-lead">In plain terms, the checks cover three situations '
+                    'a buyer actually worries about:</p>'
+                    f'<ul class="project-points buyer-scenarios">{rows}</ul>')
+        body = scen + f'<p>{esc(p.get("tested",""))}</p>'
         if p.get("not_tested"):
             body += f'<p class="case-scope"><strong>Outside scope:</strong> {esc(p["not_tested"])}</p>'
         tested = case_block("What was actually tested", body)

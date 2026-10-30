@@ -1,276 +1,295 @@
 {
-  "owner": "Jawad Sabir",
-  "title": "n8n Automation Developer",
-  "projects": [
+ "owner": "Jawad Sabir",
+ "title": "n8n Automation Developer",
+ "projects": [
+  {
+   "id": "lead-routing-reliability",
+   "title": "Lead Routing Reliability Demo",
+   "summary": "A lead-intake and routing workflow built to survive the boring failures that break real automations: duplicates, partial failures, retries and replay.",
+   "tags": [
+    "n8n",
+    "Reliability",
+    "Webhooks"
+   ],
+   "bullets": [
+    "Idempotency and duplicate protection",
+    "Retry/backoff with explicit failure paths",
+    "Safe replay without duplicate side effects",
+    "23/23 acceptance tests passed"
+   ],
+   "metric": "23 / 23",
+   "metric_label": "PASS",
+   "visual_type": null,
+   "featured": true,
+   "reverse": false,
+   "public_safe": true,
+   "one_liner": "Lead intake that survives duplicate deliveries, a transient API failure and a failed run being safely replayed.",
+   "problem": "Lead workflows break on the boring parts: the same webhook fires twice, an API returns 503 mid-run, and the retry creates a second lead. Most demos only show the happy path.",
+   "build": "An n8n lead-intake and routing workflow where every webhook receipt is idempotent (duplicate deliveries collapse to one record), validation gates entry, retries use backoff with explicit failure paths, and a safe replay recovers failed runs without duplicating side effects. Every decision is logged for audit.",
+   "reliability": [
+    "Idempotency keys on intake — duplicate webhooks collapse to a single record",
+    "Retries with backoff and explicit failure paths — no silent loops",
+    "Safe replay: failed runs re-execute without double-processing",
+    "Failure alerts instead of silent breakage",
+    "Audit trail of every route decision"
+   ],
+   "proof": "23/23 acceptance tests in the repo's evidence/acceptance-summary.json — covering duplicate delivery, transient failure, replay and routing edge cases. Demo uses synthetic data.",
+   "tech": [
+    "n8n",
+    "Webhooks",
+    "Idempotency",
+    "Backoff/retries",
+    "Replay",
+    "Audit logging"
+   ],
+   "links": [
     {
-      "id": "lead-routing-reliability",
-      "title": "Lead Routing Reliability Demo",
-      "summary": "A lead-intake and routing workflow built to survive the boring failures that break real automations: duplicates, partial failures, retries and replay.",
-      "tags": [
-        "n8n",
-        "Reliability",
-        "Webhooks"
-      ],
-      "bullets": [
-        "Idempotency and duplicate protection",
-        "Retry/backoff with explicit failure paths",
-        "Safe replay without duplicate side effects",
-        "23/23 acceptance tests passed"
-      ],
-      "metric": "23 / 23",
-      "metric_label": "PASS",
-      "visual_type": null,
-      "featured": true,
-      "reverse": false,
-      "public_safe": true,
-      "one_liner": "Lead intake that survives duplicate deliveries, a transient API failure and a failed run being safely replayed.",
-      "problem": "Lead workflows break on the boring parts: the same webhook fires twice, an API returns 503 mid-run, and the retry creates a second lead. Most demos only show the happy path.",
-      "build": "An n8n lead-intake and routing workflow where every webhook receipt is idempotent (duplicate deliveries collapse to one record), validation gates entry, retries use backoff with explicit failure paths, and a safe replay recovers failed runs without duplicating side effects. Every decision is logged for audit.",
-      "reliability": [
-        "Idempotency keys on intake — duplicate webhooks collapse to a single record",
-        "Retries with backoff and explicit failure paths — no silent loops",
-        "Safe replay: failed runs re-execute without double-processing",
-        "Failure alerts instead of silent breakage",
-        "Audit trail of every route decision"
-      ],
-      "proof": "23/23 acceptance tests in the repo's evidence/acceptance-summary.json — covering duplicate delivery, transient failure, replay and routing edge cases. Demo uses synthetic data.",
-      "tech": [
-        "n8n",
-        "Webhooks",
-        "Idempotency",
-        "Backoff/retries",
-        "Replay",
-        "Audit logging"
-      ],
-      "links": [
-        {
-          "label": "Watch recorded demo",
-          "url": "media/lead-routing-proof-walkthrough-narrated.mp4",
-          "kind": "primary"
-        },
-        {
-          "label": "View GitHub",
-          "url": "https://github.com/jadusaa/n8n-reliability-lead-routing-demo",
-          "kind": "ghost"
-        },
-        {
-          "label": "Test evidence",
-          "url": "https://github.com/jadusaa/n8n-reliability-lead-routing-demo/blob/main/evidence/acceptance-summary.json",
-          "kind": "ghost"
-        },
-        {
-          "label": "Workflow docs",
-          "url": "https://github.com/jadusaa/n8n-reliability-lead-routing-demo/tree/main/docs",
-          "kind": "ghost"
-        }
-      ],
-      "link_note": "The recording is a screen capture of the workflow running in n8n — recorded, not live.",
-      "media": [],
-      "visibility": "public",
-      "public_case_study": true,
-      "disclosure": "Independent demo • synthetic data",
-      "video": {
-        "src": "media/lead-routing-proof-walkthrough-narrated.mp4",
-        "poster": "assets/video/lead-routing-poster.jpg",
-        "duration_label": "2 min",
-        "caption": "Recorded walkthrough of the workflow running in n8n. Burned-in captions, no voice-over required."
-      },
-      "observable": [
-        "A valid lead arrives and is routed, with the route decision recorded",
-        "The same delivery arriving twice produces one intended action, not two",
-        "A simulated transient failure is retried on the failure path instead of silently dying",
-        "A failed run can be replayed without repeating its side effects"
-      ],
-      "tested": "23 acceptance checks were run locally against the workflow (n8n 1.121.3): input validation and rejection, idempotency and duplicate handling, concurrency and atomic claim, retry orchestration with backoff, transient/429/503 classification, partial-failure handling, replay without repeated side effects, and completion receipts with audit logging. All 23 passed.",
-      "not_tested": "Not a production deployment and no real client traffic. Not tested at multi-tenant scale, against live third-party APIs, or for universal recovery from every possible failure mode. The 23 checks cover the scenarios listed in the repo's acceptance summary, not an open-ended guarantee.",
-      "evidence": [
-        "23/23 checks passed, 0 failed — evidence/acceptance-summary.json",
-        "Architecture preflight: main, retry subworkflow, replay and monitor workflows all active and callable",
-        "No disabled critical nodes; no code-node network or retry loops",
-        "Failure, retry and replay paths are separated into their own workflows"
-      ]
+     "label": "Watch recorded demo",
+     "url": "media/lead-routing-proof-walkthrough-narrated.mp4",
+     "kind": "primary"
     },
     {
-      "id": "ai-lead-classifier",
-      "title": "AI Lead Classifier",
-      "summary": "A real LLM call inside n8n using Hive / GLM 5.3 Flash. The workflow trusts nothing blindly: output is parsed, schema-validated, routed and rejected cleanly when the model misbehaves.",
-      "tags": [
-        "n8n",
-        "LLM",
-        "API"
-      ],
-      "bullets": [
-        "Structured JSON + schema validation",
-        "Transient 503 recovery with retries",
-        "Malformed output returns an error, not a guess",
-        "9/9 acceptance tests passed"
-      ],
-      "metric": "9 / 9",
-      "metric_label": "PASS",
-      "visual_type": null,
-      "featured": false,
-      "reverse": true,
-      "public_safe": true,
-      "one_liner": "A real LLM call inside n8n that validates structured output, retries transient failures, and refuses to guess when the model misbehaves.",
-      "problem": "LLM integrations fail quietly: the model returns malformed JSON, the API returns 503, or the output drifts outside the schema — and the workflow routes whatever it got anyway.",
-      "build": "An n8n workflow making a real Hive API call to GLM 5.3 Flash for lead classification (category, urgency, intent). The response is parsed and schema-validated before routing; transient failures retry with backoff; malformed or invalid output returns a clean rejection — never a guess. Forced-failure tests prove each path.",
-      "reliability": [
-        "Schema validation before any routing decision",
-        "Transient 503 recovery with backoff retries",
-        "Malformed output → explicit error, not a fabricated result",
-        "Forced-failure test path proves the failure branch works",
-        "Structured JSON output consumed downstream without re-parsing"
-      ],
-      "proof": "9/9 test cases passed (test_cases.json, retry-evidence.json, results.json in repo). Real screenshots: workflow canvas + successful execution. Demo uses synthetic data.",
-      "tech": [
-        "n8n",
-        "LLM (GLM 5.3 Flash via Hive)",
-        "JSON schema validation",
-        "Retry/backoff",
-        "API integration"
-      ],
-      "links": [
-        {
-          "label": "View GitHub",
-          "url": "https://github.com/jadusaa/n8n-ai-lead-classifier-demo",
-          "kind": "ghost"
-        },
-        {
-          "label": "Test results",
-          "url": "https://github.com/jadusaa/n8n-ai-lead-classifier-demo/blob/main/results.json",
-          "kind": "ghost"
-        },
-        {
-          "label": "Architecture",
-          "url": "https://github.com/jadusaa/n8n-ai-lead-classifier-demo/blob/main/ARCHITECTURE.md",
-          "kind": "ghost"
-        }
-      ],
-      "media": [
-        {
-          "type": "image",
-          "src": "assets/01_workflow_canvas.png",
-          "alt": "n8n workflow canvas of the AI lead classifier",
-          "caption": "Workflow canvas — real n8n screenshot"
-        },
-        {
-          "type": "image",
-          "src": "assets/02_successful_execution.png",
-          "alt": "Successful classifier execution in n8n",
-          "caption": "Successful execution — real run output"
-        }
-      ],
-      "visibility": "public",
-      "public_case_study": true,
-      "disclosure": "Independent demo • synthetic data",
-      "video": null,
-      "observable": [
-        "A real API call returns a structured classification (category, urgency, intent, confidence)",
-        "Output that fails schema validation is rejected with an explicit error instead of a guess",
-        "A simulated 503 triggers retry handling, and a recovered retry is captured as evidence",
-        "Missing input is rejected at validation before any model call is made"
-      ],
-      "tested": "9 acceptance cases were run against the live n8n webhook, using a real Hive API call (GLM 5.3 Flash). Coverage: happy-path classifications, missing input, malformed JSON from the model, forced 503 through all retries, schema-invalid values, and a transient 503 that recovered on retry. All 9 passed.",
-      "not_tested": "A schema-valid response is not proof of classification accuracy — these are synthetic test messages, not labelled real-world data, so no accuracy rate is claimed. Not tested under production volume, rate limits or provider outages. No business outcome, time saving or revenue is measured.",
-      "evidence": [
-        "9/9 cases passed — results.json with per-case expected vs actual",
-        "Forced-failure path observed 3 attempts (1 initial + 2 retries) with backoff, then a clean failure",
-        "Transient 503 recovered on the second attempt against the real API",
-        "Malformed output returns 502, never a fabricated classification"
-      ],
-      "link_note": "Real n8n screenshots and captured responses are in the repo; there is no recorded video for this one."
+     "label": "View GitHub",
+     "url": "https://github.com/jadusaa/n8n-reliability-lead-routing-demo",
+     "kind": "ghost"
     },
     {
-      "id": "opportunity-engine",
-      "title": "Opportunity Engine",
-      "summary": "A private internal tool: it collects leads from multiple sources, scores them, drafts outreach and tracks replies — and sends nothing without an explicit human approval step.",
-      "tags": [
-        "n8n",
-        "Gmail",
-        "PWA"
-      ],
-      "bullets": [],
-      "metric": "",
-      "metric_label": "",
-      "visual_type": "architecture",
-      "featured": false,
-      "reverse": false,
-      "public_safe": true,
-      "one_liner": "A private internal engineering tool, shown here only as a secondary example: it is not client work and is not evidence of client acquisition results.",
-      "problem": "Solo operators lose track of lead sources and follow-ups, but fully automated outreach is not acceptable either.",
-      "build": "",
-      "flow": "",
-      "reliability": [],
-      "proof": "",
-      "tech": [
-        "n8n",
-        "FastAPI",
-        "SQLite",
-        "Gmail API",
-        "PWA"
-      ],
-      "links": [
-        {
-          "label": "Private system — discuss on request",
-          "url": "mailto:jawsdsabir@gmail.com?subject=Opportunity%20Engine%20question",
-          "kind": "ghost"
-        }
-      ],
-      "media": [],
-      "visibility": "private",
-      "public_case_study": true,
-      "disclosure": "Private internal tool • not client work",
-      "video": null,
-      "observable": [],
-      "tested": "A regression suite covering approval binding and send safety was run after a repair of this system: 33 checks, all passing.",
-      "not_tested": "Not production-verified end to end. Live Gmail polling was not exercised after the change, the search layer was not covered by the cursor tests, and one requirement-matching check remains vocabulary-driven and needs manual review. No client results, revenue or conversion figures are claimed.",
-      "evidence": [
-        "Approval is bound to exact content: editing a draft or changing the recipient invalidates it",
-        "A message queue holds nothing that could send without an approval matching its current content",
-        "Duplicate handling and watermark rules covered by regression checks"
-      ],
-      "link_note": "No repository, screenshots, URLs or operational data are published for this internal tool."
+     "label": "Sample handover",
+     "url": "docs/HANDOVER_SAMPLE_lead-intake.md",
+     "kind": "ghost"
+    },
+    {
+     "label": "Test evidence",
+     "url": "https://github.com/jadusaa/n8n-reliability-lead-routing-demo/blob/main/evidence/acceptance-summary.json",
+     "kind": "ghost"
+    },
+    {
+     "label": "Workflow docs",
+     "url": "https://github.com/jadusaa/n8n-reliability-lead-routing-demo/tree/main/docs",
+     "kind": "ghost"
     }
-  ],
-  "hero": {
-    "name": "Jawad Sabir",
-    "role": "n8n Automation Developer",
-    "headline": "n8n workflows built and repaired.",
-    "supporting": "Lead routing, API integrations and AI classification — with duplicate protection, clear failure handling and documented tests.",
-    "cta_primary": {
-      "label": "Watch workflow demo",
-      "href": "media/lead-routing-proof-walkthrough-narrated.mp4"
+   ],
+   "link_note": "The recording is a screen capture of the workflow running in n8n — recorded, not live.",
+   "media": [],
+   "visibility": "public",
+   "public_case_study": true,
+   "disclosure": "Independent demo • synthetic data",
+   "video": {
+    "src": "media/lead-routing-proof-walkthrough-narrated.mp4",
+    "poster": "assets/video/lead-routing-poster.jpg",
+    "duration_label": "2 min",
+    "caption": "Recorded walkthrough of the workflow running in n8n. Burned-in captions, no voice-over required."
+   },
+   "observable": [
+    "A valid lead arrives and is routed, with the route decision recorded",
+    "The same delivery arriving twice produces one intended action, not two",
+    "A simulated transient failure is retried on the failure path instead of silently dying",
+    "A failed run can be replayed without repeating its side effects"
+   ],
+   "tested": "23 acceptance checks were run locally against the workflow (n8n 1.121.3): input validation and rejection, idempotency and duplicate handling, concurrency and atomic claim, retry orchestration with backoff, transient/429/503 classification, partial-failure handling, replay without repeated side effects, and completion receipts with audit logging. All 23 passed.",
+   "not_tested": "Not a production deployment and no real client traffic. Not tested at multi-tenant scale, against live third-party APIs, or for universal recovery from every possible failure mode. The 23 checks cover the scenarios listed in the repo's acceptance summary, not an open-ended guarantee.",
+   "evidence": [
+    "23/23 checks passed, 0 failed — evidence/acceptance-summary.json",
+    "Architecture preflight: main, retry subworkflow, replay and monitor workflows all active and callable",
+    "No disabled critical nodes; no code-node network or retry loops",
+    "Failure, retry and replay paths are separated into their own workflows"
+   ],
+   "buyer_scenarios": [
+    {
+     "situation": "The same lead arrives twice.",
+     "result": "It becomes one lead, not two — so nobody gets contacted or invoiced twice."
     },
-    "cta_secondary": {
-      "label": "Discuss a workflow",
-      "anchor": "#contact"
+    {
+     "situation": "A connected service fails mid-run.",
+     "result": "The workflow retries it, and if it still cannot complete, it stops and reports the failure instead of quietly dropping the lead."
+    },
+    {
+     "situation": "A run fails and has to be re-sent.",
+     "result": "It can be replayed safely without repeating what already happened — no duplicate emails, no double records."
     }
+   ]
   },
-  "proof_strip": [
+  {
+   "id": "ai-lead-classifier",
+   "title": "AI Lead Classifier",
+   "summary": "A real LLM call inside n8n using Hive / GLM 5.3 Flash. The workflow trusts nothing blindly: output is parsed, schema-validated, routed and rejected cleanly when the model misbehaves.",
+   "tags": [
+    "n8n",
+    "LLM",
+    "API"
+   ],
+   "bullets": [
+    "Structured JSON + schema validation",
+    "Transient 503 recovery with retries",
+    "Malformed output returns an error, not a guess",
+    "9/9 acceptance tests passed"
+   ],
+   "metric": "9 / 9",
+   "metric_label": "PASS",
+   "visual_type": null,
+   "featured": false,
+   "reverse": true,
+   "public_safe": true,
+   "one_liner": "A real LLM call inside n8n that validates structured output, retries transient failures, and refuses to guess when the model misbehaves.",
+   "problem": "LLM integrations fail quietly: the model returns malformed JSON, the API returns 503, or the output drifts outside the schema — and the workflow routes whatever it got anyway.",
+   "build": "An n8n workflow making a real Hive API call to GLM 5.3 Flash for lead classification (category, urgency, intent). The response is parsed and schema-validated before routing; transient failures retry with backoff; malformed or invalid output returns a clean rejection — never a guess. Forced-failure tests prove each path.",
+   "reliability": [
+    "Schema validation before any routing decision",
+    "Transient 503 recovery with backoff retries",
+    "Malformed output → explicit error, not a fabricated result",
+    "Forced-failure test path proves the failure branch works",
+    "Structured JSON output consumed downstream without re-parsing"
+   ],
+   "proof": "9/9 test cases passed (test_cases.json, retry-evidence.json, results.json in repo). Real screenshots: workflow canvas + successful execution. Demo uses synthetic data.",
+   "tech": [
+    "n8n",
+    "LLM (GLM 5.3 Flash via Hive)",
+    "JSON schema validation",
+    "Retry/backoff",
+    "API integration"
+   ],
+   "links": [
     {
-      "value": "23/23",
-      "label": "Reliability demo tests"
+     "label": "View GitHub",
+     "url": "https://github.com/jadusaa/n8n-ai-lead-classifier-demo",
+     "kind": "ghost"
     },
     {
-      "value": "9/9",
-      "label": "Classifier demo tests"
+     "label": "Test results",
+     "url": "https://github.com/jadusaa/n8n-ai-lead-classifier-demo/blob/main/results.json",
+     "kind": "ghost"
+    },
+    {
+     "label": "Architecture",
+     "url": "https://github.com/jadusaa/n8n-ai-lead-classifier-demo/blob/main/ARCHITECTURE.md",
+     "kind": "ghost"
     }
-  ],
-  "how_i_build": [
-    "Validate inputs before anything moves",
-    "Prevent duplicate actions by design",
-    "Handle transient failures with retries",
-    "Fail clearly when something breaks",
-    "Log what happened, every time",
-    "Test before handoff"
-  ],
-  "what_i_work_on": [
-    "n8n workflows",
-    "API & webhook integrations",
-    "AI / LLM workflow integration",
-    "Workflow repair",
-    "Lead routing & qualification",
-    "Reliability testing",
-    "Automation handoff & documentation"
-  ]
+   ],
+   "media": [
+    {
+     "type": "image",
+     "src": "assets/01_workflow_canvas.png",
+     "alt": "n8n workflow canvas of the AI lead classifier",
+     "caption": "Workflow canvas — real n8n screenshot"
+    },
+    {
+     "type": "image",
+     "src": "assets/02_successful_execution.png",
+     "alt": "Successful classifier execution in n8n",
+     "caption": "Successful execution — real run output"
+    }
+   ],
+   "visibility": "public",
+   "public_case_study": true,
+   "disclosure": "Independent demo • synthetic data",
+   "video": null,
+   "observable": [
+    "A real API call returns a structured classification (category, urgency, intent, confidence)",
+    "Output that fails schema validation is rejected with an explicit error instead of a guess",
+    "A simulated 503 triggers retry handling, and a recovered retry is captured as evidence",
+    "Missing input is rejected at validation before any model call is made"
+   ],
+   "tested": "9 acceptance cases were run against the live n8n webhook, using a real Hive API call (GLM 5.3 Flash). Coverage: happy-path classifications, missing input, malformed JSON from the model, forced 503 through all retries, schema-invalid values, and a transient 503 that recovered on retry. All 9 passed.",
+   "not_tested": "A schema-valid response is not proof of classification accuracy — these are synthetic test messages, not labelled real-world data, so no accuracy rate is claimed. Not tested under production volume, rate limits or provider outages. No business outcome, time saving or revenue is measured.",
+   "evidence": [
+    "9/9 cases passed — results.json with per-case expected vs actual",
+    "Forced-failure path observed 3 attempts (1 initial + 2 retries) with backoff, then a clean failure",
+    "Transient 503 recovered on the second attempt against the real API",
+    "Malformed output returns 502, never a fabricated classification"
+   ],
+   "link_note": "Real n8n screenshots and captured responses are in the repo; there is no recorded video for this one."
+  },
+  {
+   "id": "opportunity-engine",
+   "title": "Opportunity Engine",
+   "summary": "A private internal tool: it collects leads from multiple sources, scores them, drafts outreach and tracks replies — and sends nothing without an explicit human approval step.",
+   "tags": [
+    "n8n",
+    "Gmail",
+    "PWA"
+   ],
+   "bullets": [],
+   "metric": "",
+   "metric_label": "",
+   "visual_type": "architecture",
+   "featured": false,
+   "reverse": false,
+   "public_safe": true,
+   "one_liner": "A private internal engineering tool, shown here only as a secondary example: it is not client work and is not evidence of client acquisition results.",
+   "problem": "Solo operators lose track of lead sources and follow-ups, but fully automated outreach is not acceptable either.",
+   "build": "",
+   "flow": "",
+   "reliability": [],
+   "proof": "",
+   "tech": [
+    "n8n",
+    "FastAPI",
+    "SQLite",
+    "Gmail API",
+    "PWA"
+   ],
+   "links": [
+    {
+     "label": "Private system — discuss on request",
+     "url": "mailto:jawsdsabir@gmail.com?subject=Opportunity%20Engine%20question",
+     "kind": "ghost"
+    }
+   ],
+   "media": [],
+   "visibility": "private",
+   "public_case_study": true,
+   "disclosure": "Private internal tool • not client work",
+   "video": null,
+   "observable": [],
+   "tested": "A regression suite covering approval binding and send safety was run after a repair of this system: 33 checks, all passing.",
+   "not_tested": "Not production-verified end to end. Live Gmail polling was not exercised after the change, the search layer was not covered by the cursor tests, and one requirement-matching check remains vocabulary-driven and needs manual review. No client results, revenue or conversion figures are claimed.",
+   "evidence": [
+    "Approval is bound to exact content: editing a draft or changing the recipient invalidates it",
+    "A message queue holds nothing that could send without an approval matching its current content",
+    "Duplicate handling and watermark rules covered by regression checks"
+   ],
+   "link_note": "No repository, screenshots, URLs or operational data are published for this internal tool."
+  }
+ ],
+ "hero": {
+  "name": "Jawad Sabir",
+  "role": "n8n Automation Developer",
+  "headline": "n8n workflows built and repaired.",
+  "supporting": "Lead routing, API integrations and AI classification — with duplicate protection, clear failure handling and documented tests.",
+  "cta_primary": {
+   "label": "Watch workflow demo",
+   "href": "media/lead-routing-proof-walkthrough-narrated.mp4"
+  },
+  "cta_secondary": {
+   "label": "Discuss a workflow",
+   "anchor": "#contact"
+  }
+ },
+ "proof_strip": [
+  {
+   "value": "23/23",
+   "label": "Reliability demo tests"
+  },
+  {
+   "value": "9/9",
+   "label": "Classifier demo tests"
+  }
+ ],
+ "how_i_build": [
+  "Validate inputs before anything moves",
+  "Prevent duplicate actions by design",
+  "Handle transient failures with retries",
+  "Fail clearly when something breaks",
+  "Log what happened, every time",
+  "Test before handoff"
+ ],
+ "what_i_work_on": [
+  "n8n workflows",
+  "API & webhook integrations",
+  "AI / LLM workflow integration",
+  "Workflow repair",
+  "Lead routing & qualification",
+  "Reliability testing",
+  "Automation handoff & documentation"
+ ]
 }
