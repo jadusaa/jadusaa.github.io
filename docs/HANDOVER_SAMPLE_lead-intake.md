@@ -93,7 +93,7 @@ scenarios listed above, not an open-ended guarantee.
 - This runbook
 - The acceptance test evidence file
 - A short recorded walkthrough
-- 14 days of fixes for defects in the delivered scope
+- Any post-delivery support period is agreed in writing before the project starts
 
 Credentials are never included. You connect your own accounts at import.
 
