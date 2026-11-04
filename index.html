@@ -30,7 +30,12 @@
 .about-section{border-top:1px solid var(--line);border-bottom:1px solid var(--line);max-width:none;padding-left:max(28px,calc((100vw - var(--max))/2));padding-right:max(28px,calc((100vw - var(--max))/2));background:#0a0c0f}.about-grid{max-width:var(--max);margin:auto;display:grid;grid-template-columns:1.2fr .8fr;gap:80px;align-items:start}.about-section h2{font-size:clamp(42px,5.6vw,76px)}.about-copy{padding-top:36px}.about-copy p{color:#a2a9b2;line-height:1.75;font-size:15px}.about-chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:28px}.contact-section{padding-top:150px;padding-bottom:150px}.contact-card{border:1px solid #29313b;border-radius:36px;padding:clamp(30px,6vw,78px);background:radial-gradient(circle at 88% 10%,rgba(200,255,97,.08),transparent 28%),linear-gradient(135deg,#101318,#0a0c0f);position:relative;overflow:hidden}.contact-card:after{content:"";position:absolute;right:-110px;top:-110px;width:320px;height:320px;border:1px solid rgba(255,255,255,.08);border-radius:50%;box-shadow:0 0 0 60px rgba(255,255,255,.018),0 0 0 120px rgba(255,255,255,.01)}.contact-card h2{max-width:850px;position:relative;z-index:2}.contact-card>p:not(.eyebrow){color:#969ea8;max-width:580px;line-height:1.7;position:relative;z-index:2}.contact-actions{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap;position:relative;z-index:2}footer{max-width:var(--max);margin:auto;padding:24px 28px 44px;color:#8d95a1;font-size:11.5px;display:flex;justify-content:space-between;border-top:1px solid var(--line)}
 .js [data-reveal]{opacity:0;transform:translateY(24px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}.js [data-reveal].visible{opacity:1;transform:none}.js .site-header[data-reveal]{transform:translateY(-12px)}.js .site-header[data-reveal].visible{transform:none}
 @keyframes rise{to{transform:translateY(0)}}@keyframes marquee{to{transform:translateX(-50%)}}@keyframes dash{to{stroke-dashoffset:-200}}@keyframes pulse{0%,100%{opacity:.12;transform:scaleX(.85)}50%{opacity:.8;transform:scaleX(1)}}
-.offers{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.offers{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.process-intro{margin:12px 0 0;color:#a2a9b2;font-size:14.5px;line-height:1.7;max-width:760px}
+.post-work-contact{padding-top:0;padding-bottom:0}
+.post-work-line{margin:0;padding:26px 0;border-top:1px solid var(--line);color:#9aa2ac;font-size:15.5px;text-align:center}
+.post-work-line a{color:#c8ff61;text-decoration:none;font-weight:600}
+.post-work-line a:hover{text-decoration:underline}
 .offer{background:linear-gradient(145deg,#0d0f12,#111419);border:1px solid #222731;border-radius:20px;padding:22px 22px 20px}
 .offer-num{display:block;font-size:11px;letter-spacing:.12em;color:#8d95a1;margin-bottom:10px}
 .offer h3{margin:0 0 10px;font-size:19px;line-height:1.25;letter-spacing:-.02em}
@@ -44,6 +49,7 @@
 .process-steps p{margin:0;color:#9aa2ac;font-size:13px;line-height:1.55}
 .process-note{margin:16px 0 0;color:#8d95a1;font-size:12px}
 @media(max-width:900px){.offers{grid-template-columns:1fr}.process-steps{grid-template-columns:1fr}}
+@media(min-width:901px) and (max-width:1180px){.offers{grid-template-columns:repeat(2,1fr)}}
 .case-video{margin:18px 0 4px;padding:0}
 .case-video video{display:block;width:100%;max-width:100%;height:auto;aspect-ratio:16/9;object-fit:contain;border-radius:16px;border:1px solid #222731;background:#0b0d10}
 .case-video figcaption{margin-top:9px;color:#9aa2ac;font-size:12.5px;line-height:1.5}
@@ -118,17 +124,20 @@
       <div class="hero-orbit orbit-b" aria-hidden="true"></div>
 
       <div class="hero-copy">
-        <p class="eyebrow" data-reveal>JAWAD SABIR / n8n AUTOMATION DEVELOPER</p>
-        <h1 id="hero-title" class="hero-title" aria-label="n8n workflows built and repaired">
-          <span class="title-line"><span class="word-reveal">n8n WORKFLOWS</span></span>
-          <span class="title-line accent-line"><span class="word-reveal delay-1">BUILT AND REPAIRED.</span></span>
+        <p class="eyebrow" data-reveal>JAWAD SABIR / WORKFLOW AUTOMATION &amp; INTERNAL TOOLS</p>
+        <h1 id="hero-title" class="hero-title" aria-label="Workflows built, repaired and made reliable">
+          <span class="title-line"><span class="word-reveal">WORKFLOWS BUILT.</span></span>
+          <span class="title-line accent-line"><span class="word-reveal delay-1">FAILURES HANDLED.</span></span>
         </h1>
         <div class="hero-lower" data-reveal>
-          <p class="hero-description">Lead routing, API integrations and AI classification &mdash; with duplicate protection, clear failure handling and documented tests.</p>
+          <p class="hero-description">I build n8n and Make workflows, connect apps through APIs, and build small tools for teams doing repetitive work. If you have a workflow in mind, tell me what starts it, what should happen next, and where someone still has to step in.</p>
           <div class="hero-actions">
-            <a class="button primary" href="media/lead-routing-proof-walkthrough-narrated.mp4">Watch workflow demo <span>&#8599;</span></a>
-            <a class="button ghost" href="#contact">Discuss a workflow</a>
+            <a class="button primary" href="mailto:jawsdsabir@gmail.com?subject=Workflow%20build%20or%20repair">Describe a workflow <span>&#8599;</span></a>
+            <a class="button ghost" href="media/lead-routing-proof-walkthrough-narrated.mp4">Watch workflow demo</a>
           </div>
+          <p class="hero-note">
+            Prefer email? <a href="mailto:jawsdsabir@gmail.com?subject=Workflow%20build%20or%20repair"><strong>jawsdsabir@gmail.com</strong></a> &mdash; tell me what starts the workflow and where it currently breaks.
+          </p>
           <p class="hero-note">Two independent demos below &mdash; real workflow exports, test evidence and n8n screenshots you can inspect.</p>
         </div>
       </div>
@@ -143,37 +152,44 @@
 
     <section id="services" class="section services-section">
       <div class="section-head" data-reveal>
-        <div><p class="eyebrow">WHAT I DO</p><h2>Three things I can take on.</h2></div>
-        <p>Bounded n8n and API work, scoped to what the two demos below actually demonstrate.</p>
+        <div><p class="eyebrow">WHAT I DO</p><h2>Work that removes a manual step.</h2></div>
+        <p>Bounded builds and repairs, scoped to what the examples below actually demonstrate.</p>
       </div>
       <div class="offers">
         <article class="offer" data-reveal>
           <span class="offer-num">01</span>
-          <h3>Repair a failing n8n workflow</h3>
-          <p>Investigate errors, duplicate actions and retry/recovery problems in a workflow that already exists.</p>
-          <p class="offer-proof">Closest evidence: the reliability demo's failure, retry and replay tests.</p>
+          <h3>Repair a workflow that keeps breaking</h3>
+          <p>Duplicates, silent failures, retries that repeat real actions, and runs nobody can trace. I find the failure path and make it explicit.</p>
+          <p class="offer-proof">Closest evidence: the reliability demo's duplicate, transient-failure and replay tests.</p>
         </article>
         <article class="offer" data-reveal>
           <span class="offer-num">02</span>
-          <h3>Build a bounded lead-intake workflow</h3>
-          <p>Receive, validate, deduplicate and route incoming leads, with an audit trail of what happened.</p>
+          <h3>Move data between the apps you already use</h3>
+          <p>Form submissions into a CRM, spreadsheet rows into a system of record, API-to-API sync &mdash; with validation and a record of what happened.</p>
           <p class="offer-proof">Closest evidence: the reliability demo's intake, validation and routing path.</p>
         </article>
         <article class="offer" data-reveal>
           <span class="offer-num">03</span>
-          <h3>Add AI lead classification</h3>
-          <p>Structured output, schema validation, routing, and explicit failure handling when the model misbehaves.</p>
-          <p class="offer-proof">Closest evidence: the classifier demo's 9/9 tests including malformed output.</p>
+          <h3>Make AI output safe to act on</h3>
+          <p>Classify or summarise incoming work, then validate the model's response before anything downstream trusts it. Explicit handling when the model misbehaves.</p>
+          <p class="offer-proof">Closest evidence: the classifier demo's 9/9 tests, including malformed output.</p>
+        </article>
+        <article class="offer" data-reveal>
+          <span class="offer-num">04</span>
+          <h3>Build a small internal tool</h3>
+          <p>A focused interface or dashboard for a repetitive team task &mdash; scoped so it can be tested against agreed checks before it grows.</p>
+          <p class="offer-proof">Closest evidence: internal tooling built and run for my own acquisition workflow.</p>
         </article>
       </div>
       <div class="process" data-reveal>
-        <p class="eyebrow">HOW WE'LL WORK TOGETHER</p>
+        <p class="eyebrow">WORKING TOGETHER</p>
+        <p class="process-intro">We agree on the workflow, the access it needs, and what a successful run should look like. For a larger build, we can start with a paid milestone you can test before expanding the scope.</p>
         <ol class="process-steps">
-          <li><span>1</span><div><strong>Understand the problem</strong><p>You describe the workflow, the tools involved and what currently breaks.</p></div></li>
-          <li><span>2</span><div><strong>Agree a bounded paid milestone and acceptance checks</strong><p>One scoped piece of work with a defined definition of done, agreed before anything is built.</p></div></li>
+          <li><span>1</span><div><strong>Understand the problem</strong><p>You describe what starts the workflow, the tools involved and where it currently breaks.</p></div></li>
+          <li><span>2</span><div><strong>Agree a bounded milestone and acceptance checks</strong><p>One scoped piece of work with a definition of done, agreed before anything is built.</p></div></li>
           <li><span>3</span><div><strong>Demonstrate and hand off</strong><p>You see it working against those checks, and you get the workflow, documentation and test evidence.</p></div></li>
         </ol>
-              </div>
+      </div>
     </section>
 
     <section id="work" class="section projects-section">
@@ -196,7 +212,7 @@
         <figure class="case-video"><video controls preload="metadata" playsinline poster="assets/video/lead-routing-poster.jpg" width="1920" height="1080"><source src="media/lead-routing-proof-walkthrough-narrated.mp4" type="video/mp4"><a href="media/lead-routing-proof-walkthrough-narrated.mp4">Download the 2 min recorded demo (MP4)</a></video><figcaption>Recorded walkthrough of the workflow running in n8n. Burned-in captions, no voice-over required.<span class="video-duration">2 min</span></figcaption></figure>
         <div class="case-block"><h4>Problem demonstrated</h4><p>Lead workflows break on the boring parts: the same webhook fires twice, an API returns 503 mid-run, and the retry creates a second lead. Most demos only show the happy path.</p></div>
         <div class="case-block"><h4>What it visibly does</h4><ul class="project-points"><li>A valid lead arrives and is routed, with the route decision recorded</li><li>The same delivery arriving twice produces one intended action, not two</li><li>A simulated transient failure is retried on the failure path instead of silently dying</li><li>A failed run can be replayed without repeating its side effects</li></ul></div>
-        <div class="case-block"><h4>What was actually tested</h4><p class="case-lead">In plain terms, the checks cover three situations a buyer actually worries about:</p><ul class="project-points buyer-scenarios"><li><strong>The same lead arrives twice.</strong> It becomes one lead, not two — so nobody gets contacted or invoiced twice.</li><li><strong>A connected service fails mid-run.</strong> The workflow retries it, and if it still cannot complete, it stops and reports the failure instead of quietly dropping the lead.</li><li><strong>A run fails and has to be re-sent.</strong> It can be replayed safely without repeating what already happened — no duplicate emails, no double records.</li></ul><p>23 acceptance checks were run locally against the workflow (n8n 1.121.3): input validation and rejection, idempotency and duplicate handling, concurrency and atomic claim, retry orchestration with backoff, transient/429/503 classification, partial-failure handling, replay without repeated side effects, and completion receipts with audit logging. All 23 passed.</p><p class="case-scope"><strong>Outside scope:</strong> Not a production deployment and no real client traffic. Not tested at multi-tenant scale, against live third-party APIs, or for universal recovery from every possible failure mode. The 23 checks cover the scenarios listed in the repo&#x27;s acceptance summary, not an open-ended guarantee.</p></div>
+        <div class="case-block"><h4>What was actually tested</h4><p class="case-lead">In plain terms, the checks cover three situations a buyer actually worries about:</p><ul class="project-points buyer-scenarios"><li><strong>The same lead arrives twice.</strong> Second delivery is detected and collapses to the existing record — one lead, not two, so nobody is contacted or invoiced twice.</li><li><strong>A connected API returns 503 mid-run.</strong> The step retries with backoff. If it still fails, the run stops with a recorded reason instead of continuing on partial data.</li><li><strong>A run fails after some steps already succeeded.</strong> It can be replayed safely: completed work is not repeated, and only the unfinished part runs again.</li><li><strong>A malformed payload arrives at the webhook.</strong> Validation rejects it before any downstream action, and the rejection is recorded rather than silently dropped.</li></ul><p>23 acceptance checks were run locally against the workflow (n8n 1.121.3): input validation and rejection, idempotency and duplicate handling, concurrency and atomic claim, retry orchestration with backoff, transient/429/503 classification, partial-failure handling, replay without repeated side effects, and completion receipts with audit logging. All 23 passed.</p><p class="case-scope"><strong>Outside scope:</strong> Not a production deployment and no real client traffic. Not tested at multi-tenant scale, against live third-party APIs, or for universal recovery from every possible failure mode. The 23 checks cover the scenarios listed in the repo&#x27;s acceptance summary, not an open-ended guarantee.</p></div>
         <div class="project-links"><a class="button small primary" href="media/lead-routing-proof-walkthrough-narrated.mp4" onclick="gtag('event','cta_click',{'link_label':'Watch recorded demo','link_url':'media/lead-routing-proof-walkthrough-narrated.mp4'});">Watch recorded demo</a><a class="button small ghost" target="_blank" rel="noopener" href="https://github.com/jadusaa/n8n-reliability-lead-routing-demo" onclick="gtag('event','cta_click',{'link_label':'View GitHub','link_url':'https://github.com/jadusaa/n8n-reliability-lead-routing-demo'});">View GitHub ↗</a><a class="button small ghost" href="docs/handover-sample.html" onclick="gtag('event','cta_click',{'link_label':'Sample handover','link_url':'docs/handover-sample.html'});">Sample handover</a><a class="button small ghost" target="_blank" rel="noopener" href="https://github.com/jadusaa/n8n-reliability-lead-routing-demo/blob/main/evidence/acceptance-summary.json" onclick="gtag('event','cta_click',{'link_label':'Test evidence','link_url':'https://github.com/jadusaa/n8n-reliability-lead-routing-demo/blob/main/evidence/acceptance-summary.json'});">Test evidence ↗</a><a class="button small ghost" target="_blank" rel="noopener" href="https://github.com/jadusaa/n8n-reliability-lead-routing-demo/tree/main/docs" onclick="gtag('event','cta_click',{'link_label':'Workflow docs','link_url':'https://github.com/jadusaa/n8n-reliability-lead-routing-demo/tree/main/docs'});">Workflow docs ↗</a></div>
         <p class="project-link-note">The recording is a screen capture of the workflow running in n8n — recorded, not live.</p>
         <details class="case-evidence"><summary>Technical detail and test evidence</summary><ul class="project-points"><li>23/23 checks passed, 0 failed — evidence/acceptance-summary.json</li><li>Architecture preflight: main, retry subworkflow, replay and monitor workflows all active and callable</li><li>No disabled critical nodes; no code-node network or retry loops</li><li>Failure, retry and replay paths are separated into their own workflows</li></ul></details>
@@ -212,7 +228,7 @@
         
         <div class="case-block"><h4>Problem demonstrated</h4><p>LLM integrations fail quietly: the model returns malformed JSON, the API returns 503, or the output drifts outside the schema — and the workflow routes whatever it got anyway.</p></div>
         <div class="case-block"><h4>What it visibly does</h4><ul class="project-points"><li>A real API call returns a structured classification (category, urgency, intent, confidence)</li><li>Output that fails schema validation is rejected with an explicit error instead of a guess</li><li>A simulated 503 triggers retry handling, and a recovered retry is captured as evidence</li><li>Missing input is rejected at validation before any model call is made</li></ul></div>
-        <div class="case-block"><h4>What was actually tested</h4><p>9 acceptance cases were run against the live n8n webhook, using a real Hive API call (GLM 5.3 Flash). Coverage: happy-path classifications, missing input, malformed JSON from the model, forced 503 through all retries, schema-invalid values, and a transient 503 that recovered on retry. All 9 passed.</p><p class="case-scope"><strong>Outside scope:</strong> A schema-valid response is not proof of classification accuracy — these are synthetic test messages, not labelled real-world data, so no accuracy rate is claimed. Not tested under production volume, rate limits or provider outages. No business outcome, time saving or revenue is measured.</p></div>
+        <div class="case-block"><h4>What was actually tested</h4><p class="case-lead">In plain terms, the checks cover three situations a buyer actually worries about:</p><ul class="project-points buyer-scenarios"><li><strong>A normal message arrives and is classified.</strong> Category, urgency and intent are returned, parsed and schema-validated before anything downstream uses them.</li><li><strong>The model returns malformed or invalid output.</strong> Parsing or schema validation fails, so the workflow does NOT route the bad result — it takes the explicit failure path instead of trusting whatever came back.</li><li><strong>The model API returns a forced 503.</strong> Retries run against a local fixture that always returns 503; after the configured attempts the workflow returns a clean failure with no fabricated classification.</li></ul><p>9 acceptance cases were run against the live n8n webhook, using a real Hive API call (GLM 5.3 Flash). Coverage: happy-path classifications, missing input, malformed JSON from the model, forced 503 through all retries, schema-invalid values, and a transient 503 that recovered on retry. All 9 passed.</p><p class="case-scope"><strong>Outside scope:</strong> A schema-valid response is not proof of classification accuracy — these are synthetic test messages, not labelled real-world data, so no accuracy rate is claimed. Not tested under production volume, rate limits or provider outages. No business outcome, time saving or revenue is measured.</p></div>
         <div class="project-links"><a class="button small ghost" target="_blank" rel="noopener" href="https://github.com/jadusaa/n8n-ai-lead-classifier-demo" onclick="gtag('event','cta_click',{'link_label':'View GitHub','link_url':'https://github.com/jadusaa/n8n-ai-lead-classifier-demo'});">View GitHub ↗</a><a class="button small ghost" target="_blank" rel="noopener" href="https://github.com/jadusaa/n8n-ai-lead-classifier-demo/blob/main/results.json" onclick="gtag('event','cta_click',{'link_label':'Test results','link_url':'https://github.com/jadusaa/n8n-ai-lead-classifier-demo/blob/main/results.json'});">Test results ↗</a><a class="button small ghost" target="_blank" rel="noopener" href="https://github.com/jadusaa/n8n-ai-lead-classifier-demo/blob/main/ARCHITECTURE.md" onclick="gtag('event','cta_click',{'link_label':'Architecture','link_url':'https://github.com/jadusaa/n8n-ai-lead-classifier-demo/blob/main/ARCHITECTURE.md'});">Architecture ↗</a></div>
         <p class="project-link-note">Real n8n screenshots and captured responses are in the repo; there is no recorded video for this one.</p>
         <details class="case-evidence"><summary>Technical detail and test evidence</summary><ul class="project-points"><li>9/9 cases passed — results.json with per-case expected vs actual</li><li>Forced-failure path observed 3 attempts (1 initial + 2 retries) with backoff, then a clean failure</li><li>Transient 503 recovered on the second attempt against the real API</li><li>Malformed output returns 502, never a fabricated classification</li></ul></details>
@@ -255,11 +271,18 @@
           <h2>I like automations that still make sense when something goes wrong.</h2>
         </div>
         <div class="about-copy" data-reveal>
-          <p>I’m Jawad Sabir, an n8n automation developer based in Pakistan and available for remote work. I build reliable workflows around lead handling, APIs, webhooks and AI integrations.</p>
-          <p>My work focuses on the parts that matter after a workflow goes live — validation, retries, duplicate protection, safe recovery and clear failure handling. The two public demos include working workflows, test evidence and documentation so you can inspect how they’re built.</p>
-          <div class="about-chips"><span>Remote</span><span>Remote work</span><span>Available for projects</span></div>
+          <p>I'm Jawad Sabir, based in Pakistan and available for remote work. I build workflows and small internal tools around lead handling, APIs, webhooks and AI integrations &mdash; mostly n8n and Make, connecting whatever apps a team already uses.</p>
+          <p>My work focuses on the parts that matter after something goes live — validation, retries, duplicate protection, safe recovery and clear failure handling. The public demos include working workflows, test evidence and documentation so you can inspect how they're built.</p>
+          <div class="about-chips"><span>Remote</span><span>n8n &amp; Make</span><span>API integrations</span><span>Available for projects</span></div>
         </div>
       </div>
+    </section>
+
+    <section class="section post-work-contact" data-reveal>
+      <p class="post-work-line">
+        Got something that doesn't fit these examples?
+        <a href="mailto:jawsdsabir@gmail.com?subject=Workflow%20question">Tell me what the workflow should do &rarr;</a>
+      </p>
     </section>
 
     <section id="contact" class="section contact-section">
