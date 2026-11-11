@@ -267,6 +267,74 @@
         "Duplicate handling and watermark rules covered by regression checks"
       ],
       "link_note": "No repository, screenshots, URLs or operational data are published for this internal tool."
+    },
+    {
+      "id": "shopify-purchase-tracking",
+      "title": "Shopify Purchase Tracking — GA4 + Meta CAPI",
+      "summary": "A server-side purchase-tracking pipeline for Shopify. The browser pixel and the server both report the same purchase under one event_id, and a durable queue retries each destination on its own until Meta and GA4 confirm it — or stops permanently and alerts.",
+      "tags": [
+        "Shopify",
+        "Meta CAPI",
+        "GA4",
+        "Idempotency"
+      ],
+      "metric": "4",
+      "metric_label": "REAL ORDERS, BOTH DESTINATIONS",
+      "visual_type": "architecture",
+      "featured": false,
+      "reverse": false,
+      "public_safe": true,
+      "visibility": "public",
+      "public_case_study": true,
+      "disclosure": "Independent dev-store demonstration • test orders, no client traffic",
+      "one_liner": "Purchase tracking that survives a duplicate checkout webhook, one platform being down, and a redeploy landing mid-retry.",
+      "problem": "Shopify's Customer Events change broke a lot of purchase tracking. When the browser pixel and a server-side call both report the same order, the platforms count it twice unless the two share an event_id. When one destination is down, the usual result is a lost purchase or a retry that double-sends. And most implementations have no way to tell you which orders actually reached Meta and which only reached GA4.",
+      "build": "A Cloudflare Worker receives a purchase from a Shopify web pixel, persists it to D1, and fans out to GA4 Measurement Protocol and the Meta Conversions API. Every receipt is keyed by an idempotency key derived from the order, so a duplicate delivery collapses to one row. Each destination keeps its own state machine — pending, sent, retrying, permanent — with its own attempt count, its own next-attempt time, and its own error. A cron trigger every two minutes picks up anything left pending by a crash or a redeploy and continues it without re-sending what already succeeded. Customer identity (email, phone, external id) is hashed before the payload leaves the Worker and purged from the row after delivery.",
+      "reliability": [
+        "Duplicate checkout deliveries collapse to one row via an idempotency key derived from the order",
+        "GA4 and Meta advance independently — one can be permanent while the other is already sent",
+        "Cron-driven recovery continues interrupted work after a redeploy, without re-sending delivered events",
+        "Consent-denied traffic is stored and skipped rather than silently dropped or force-sent",
+        "A permanent failure writes an alert row instead of retrying forever",
+        "PII is hashed at the edge and the identity columns are purged after delivery"
+      ],
+      "proof": "Four real Shopify dev-store checkouts were received and recorded, and the deployed Worker shows a delivery row per order with both destinations in `sent` state on the first attempt (transaction ids 19010791374938, 19010968125530, 19012448845914 and one further test order). GA4 accepted and the DebugView showed our purchase parameters with an exact revenue match. Recovery, destination independence, duplicate-replay and consent-denial were each verified against the deployed Worker, not a local mock.",
+      "tech": [
+        "Cloudflare Workers",
+        "D1",
+        "Shopify Web Pixels",
+        "Meta Conversions API",
+        "GA4 Measurement Protocol",
+        "Idempotency",
+        "Cron recovery"
+      ],
+      "tested": "Verified on the deployed Worker: duplicate delivery produces one row and no second send; a repeated delivery of an already-sent order does not double-send; consent-denied produces zero sends; a transient destination failure retries on its own while the other destination stays sent; cron recovery resumes an interrupted retry after a redeploy; the served pixel is byte-identical to the source pixel; the unauthenticated surface exposes no secret. GA4 received both real orders with an exact revenue match.",
+      "not_tested": "Not a client deployment and no real customer traffic — every order here is a dev-store test checkout. Meta per-event arrival for a specific order was observed through a test-event code replay rather than the original production send, so Meta deduplication between the browser pixel and the server call is NOT proven. GA4 production reporting beyond DebugView is not proven. Traffic-source attribution is not proven. This is a demonstration of the mechanics, not a claim of measured revenue improvement.",
+      "evidence": [
+        "Deployed Worker live at /health and /health returning ok with a durable D1 binding",
+        "Four real dev-store checkouts recorded, each with a per-destination delivery row",
+        "GA4 purchase parameters visible in DebugView with exact revenue match",
+        "Duplicate-replay, consent-denial and cron-recovery verified against the deployed Worker"
+      ],
+      "observable": [
+        "A purchase arrives once and both destinations record it",
+        "The same purchase arriving twice produces one record and one send per destination",
+        "A destination that is down retries on its own without blocking the other",
+        "An order that Meta permanently rejects is marked permanent and raises an alert instead of looping"
+      ],
+      "links": [
+        {
+          "label": "Read the build notes",
+          "url": "https://github.com/jadusaa/jadusaa.github.io/blob/main/SHOPIFY_TRACKING_CASE_STUDY.md",
+          "kind": "primary"
+        },
+        {
+          "label": "Ask about this build",
+          "url": "mailto:jawadsabir150@gmail.com?subject=Shopify%20tracking%20pipeline%20question",
+          "kind": "ghost"
+        }
+      ],
+      "media": []
     }
   ],
   "hero": {
